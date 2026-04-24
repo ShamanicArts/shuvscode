@@ -1,0 +1,32 @@
+{
+  "name": "shuvscode-bootstrap",
+  "displayName": "shuvscode Bootstrap",
+  "description": "Installs selected first-run extensions for shuvscode.",
+  "version": "0.0.1",
+  "publisher": "shuvscode",
+  "engines": {
+    "vscode": "*"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "shuvscode Bootstrap",
+      "properties": {
+        "shuvscode.bootstrap.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Install shuvscode first-run extension recommendations once."
+        }
+      }
+    }
+  }
+}

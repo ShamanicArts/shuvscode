@@ -1,0 +1,63 @@
+# Maintainer: shuv <kyle@latitudes.io>
+
+pkgname=shuvscode-bin
+_pkgname=shuvscode
+pkgver=1.112.02750.shuv1
+pkgrel=1
+pkgdesc="shuvscode: an opinionated VS Code/VSCodium fork (bundles Electron)"
+arch=('x86_64')
+url="https://github.com/shuv1337/shuvscode"
+license=('MIT')
+depends=(
+  'alsa-lib'
+  'at-spi2-core'
+  'cairo'
+  'fontconfig'
+  'gtk3'
+  'libdrm'
+  'libgbm'
+  'libsecret'
+  'libx11'
+  'libxkbfile'
+  'libxss'
+  'libxtst'
+  'nss'
+  'pango'
+)
+optdepends=(
+  'org.freedesktop.secrets: keyring/secrets support'
+)
+provides=("shuvscode=${pkgver}")
+conflicts=('shuvscode' 'shuvscode-git' 'shuvscode-electron')
+source=(
+  "${pkgname}-${pkgver}.tar.gz::https://github.com/shuv1337/shuvscode/releases/download/v${pkgver}/shuvscode-linux-x64.tar.gz"
+  "shuvcode.sh"
+  "shuvscode.desktop"
+)
+sha256sums=(
+  '<release-tarball-sha256>'
+  '<shuvcode-sh-sha256>'
+  '<desktop-sha256>'
+)
+
+package() {
+  install -dm755 "${pkgdir}/opt/${_pkgname}"
+
+  cp -a "${srcdir}/${_pkgname}/." "${pkgdir}/opt/${_pkgname}/"
+
+  install -Dm755 "${srcdir}/shuvcode.sh" \
+    "${pkgdir}/usr/bin/shuvcode"
+
+  install -Dm644 "${srcdir}/shuvscode.desktop" \
+    "${pkgdir}/usr/share/applications/shuvscode.desktop"
+
+  if [[ -f "${pkgdir}/opt/${_pkgname}/resources/app/LICENSE.txt" ]]; then
+    install -Dm644 "${pkgdir}/opt/${_pkgname}/resources/app/LICENSE.txt" \
+      "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  fi
+
+  if [[ -f "${pkgdir}/opt/${_pkgname}/resources/app/resources/linux/code.png" ]]; then
+    install -Dm644 "${pkgdir}/opt/${_pkgname}/resources/app/resources/linux/code.png" \
+      "${pkgdir}/usr/share/icons/hicolor/512x512/apps/shuvscode.png"
+  fi
+}
