@@ -81,16 +81,16 @@ write_letterpress() {
   local letter_png="$tmpdir/$(basename "$output" .svg).png"
 
   magick "$logo_1024" \
-    -resize 32x32 \
+    -resize 400x400 \
     -fill "$color" \
     -colorize 100 \
     -channel A -evaluate multiply "$opacity" +channel \
     -background none \
     -gravity center \
-    -extent 40x40 \
+    -extent 512x512 \
     PNG32:"$letter_png"
 
-  write_svg_image "$letter_png" "$output" 40 40
+  write_svg_image "$letter_png" "$output" 512 512
 }
 
 mkdir -p \
