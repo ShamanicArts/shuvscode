@@ -27,7 +27,40 @@
   "configBasedExtensionTips": {},
   "extensionKeywords": {},
 
-  "builtInExtensions": [],
+  "builtInExtensions": [
+    {
+      "name": "detachhead.basedpyright",
+      "version": "1.39.3",
+      "sha256": "bae5a44b18ec63b64bd50530aa48b03d337ca06524b5f9bbfc782fdc49e682a7",
+      "repo": "https://github.com/detachhead/basedpyright",
+      "metadata": {
+        "id": "04b68fbe-ec38-5284-870e-855775f8126d",
+        "publisherId": {
+          "publisherId": "3cbdb031-446d-51c7-a0b4-fa2bafb6ac8c",
+          "publisherName": "detachhead",
+          "displayName": "detachhead",
+          "flags": "verified"
+        },
+        "publisherDisplayName": "detachhead"
+      }
+    },
+    {
+      "name": "EditorConfig.EditorConfig",
+      "version": "0.18.2",
+      "sha256": "cbc0370ff204bc16d84a3ee6830536fc04355856fa0e895ab064e1a03cfcb84a",
+      "repo": "https://github.com/editorconfig/editorconfig-vscode",
+      "metadata": {
+        "id": "88fe3c7b-8c9e-531c-a8c0-7a65bea9c4b3",
+        "publisherId": {
+          "publisherId": "2878184e-6686-56f2-9ff2-db6b3e9e3166",
+          "publisherName": "EditorConfig",
+          "displayName": "EditorConfig",
+          "flags": "verified"
+        },
+        "publisherDisplayName": "EditorConfig"
+      }
+    }
+  ],
 
   "extensionEnabledApiProposals": {
     "jeanp413.open-remote-ssh": [
