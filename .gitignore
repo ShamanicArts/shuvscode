@@ -16,7 +16,7 @@ build/windows/msi/Files*.wxs
 build/windows/msi/Files*.wixobj
 sourcemaps/
 
-# ShuvScode: track the env file (*.env would block it)
+# shuvscode: track the env file (*.env would block it)
 !shuvscode.env
 shuvscode.env.local
 stores/snapcraft/insider/*.snap

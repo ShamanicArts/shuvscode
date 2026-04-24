@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$REPO_ROOT"
 
 source ./shuvscode.env
 
@@ -22,15 +23,18 @@ fi
 export npm_config_python="${npm_config_python:-$(uv python find 3.11)}"
 
 orig_product="$(mktemp)"
-cp product.json "$orig_product"
+cp "$REPO_ROOT/product.json" "$orig_product"
 
 cleanup() {
-  cp "$orig_product" product.json
+  cp "$orig_product" "$REPO_ROOT/product.json"
   rm -f "$orig_product"
+  if [[ -f "$REPO_ROOT/patches/disable-update.patch" && ! -f "$REPO_ROOT/patches/disable-update.patch.yet" ]]; then
+    mv "$REPO_ROOT/patches/disable-update.patch" "$REPO_ROOT/patches/disable-update.patch.yet"
+  fi
 }
 trap cleanup EXIT
 
-jq -s '.[0] * .[1]' "$orig_product" shuvscode.product.json > product.json
+jq -s '.[0] * .[1]' "$orig_product" shuvscode.product.json > "$REPO_ROOT/product.json"
 
 # Upstream scripts assume some vars can be unset.
 set +u
