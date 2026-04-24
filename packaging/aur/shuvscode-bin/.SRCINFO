@@ -1,0 +1,37 @@
+pkgbase = shuvscode-bin
+	pkgdesc = shuvscode: an opinionated VS Code/VSCodium fork (bundles Electron)
+	pkgver = 1.112.02750.shuv1
+	pkgrel = 1
+	url = https://github.com/shuv1337/shuvscode
+	arch = x86_64
+	license = MIT
+	depends = alsa-lib
+	depends = at-spi2-core
+	depends = cairo
+	depends = fontconfig
+	depends = gtk3
+	depends = libdrm
+	depends = libsecret
+	depends = libx11
+	depends = libxkbfile
+	depends = libxss
+	depends = libxtst
+	depends = mesa
+	depends = nss
+	depends = pango
+	optdepends = gnome-keyring: GNOME keyring/secrets support
+	optdepends = kwallet: KDE wallet/secrets support
+	provides = shuvscode=1.112.02750.shuv1
+	conflicts = shuvscode
+	conflicts = shuvscode-git
+	conflicts = shuvscode-electron
+	options = !strip
+	options = !debug
+	source = shuvscode-bin-1.112.02750.shuv1.tar.gz::https://github.com/shuv1337/shuvscode/releases/download/v1.112.02750.shuv1/shuvscode-linux-x64.tar.gz
+	source = shuvcode.sh
+	source = shuvscode.desktop
+	sha256sums = f56c2a72157631c8d2278898f2fe761962473d422d89b87ef958fea7a5c9e0d0
+	sha256sums = 4dec07c9922378cf239ed9f00144187583a788b94de8e3be063411b52248cc03
+	sha256sums = 0b3e9bb1178a51a08c2eef3e64455181fa6a63c7c80f7531f2cf27c0346f3a4c
+
+pkgname = shuvscode-bin

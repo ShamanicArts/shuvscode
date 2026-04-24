@@ -15,29 +15,31 @@ depends=(
   'fontconfig'
   'gtk3'
   'libdrm'
-  'libgbm'
   'libsecret'
   'libx11'
   'libxkbfile'
   'libxss'
   'libxtst'
+  'mesa'
   'nss'
   'pango'
 )
 optdepends=(
-  'org.freedesktop.secrets: keyring/secrets support'
+  'gnome-keyring: GNOME keyring/secrets support'
+  'kwallet: KDE wallet/secrets support'
 )
 provides=("shuvscode=${pkgver}")
 conflicts=('shuvscode' 'shuvscode-git' 'shuvscode-electron')
+options=('!strip' '!debug')
 source=(
   "${pkgname}-${pkgver}.tar.gz::https://github.com/shuv1337/shuvscode/releases/download/v${pkgver}/shuvscode-linux-x64.tar.gz"
   "shuvcode.sh"
   "shuvscode.desktop"
 )
 sha256sums=(
-  '<release-tarball-sha256>'
-  '<shuvcode-sh-sha256>'
-  '<desktop-sha256>'
+  'f56c2a72157631c8d2278898f2fe761962473d422d89b87ef958fea7a5c9e0d0'
+  '4dec07c9922378cf239ed9f00144187583a788b94de8e3be063411b52248cc03'
+  '0b3e9bb1178a51a08c2eef3e64455181fa6a63c7c80f7531f2cf27c0346f3a4c'
 )
 
 package() {
