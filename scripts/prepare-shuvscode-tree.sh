@@ -9,11 +9,14 @@ if [[ -f ./shuvscode.env.local ]]; then
   source ./shuvscode.env.local
 fi
 
-if command -v nvm >/dev/null 2>&1; then
-  nvm use "$(cat .nvmrc)"
+node_version="$(cat .nvmrc)"
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise env node@"$node_version")"
+elif command -v nvm >/dev/null 2>&1; then
+  nvm use "$node_version"
 elif [[ -s /usr/share/nvm/init-nvm.sh ]]; then
   source /usr/share/nvm/init-nvm.sh
-  nvm use "$(cat .nvmrc)"
+  nvm use "$node_version"
 fi
 
 export npm_config_python="${npm_config_python:-$(uv python find 3.11)}"
