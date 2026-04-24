@@ -1,0 +1,38 @@
+{
+  "nameShort": "ShuvScode",
+  "nameLong": "ShuvScode",
+  "applicationName": "shuvcode",
+  "dataFolderName": ".shuvscode",
+  "linuxIconName": "shuvscode",
+  "quality": "stable",
+  "urlProtocol": "shuvscode",
+
+  "serverApplicationName": "shuvcode-server",
+  "serverDataFolderName": ".shuvscode-server",
+  "tunnelApplicationName": "shuvcode-tunnel",
+
+  "reportIssueUrl": "https://github.com/shuv1337/shuvscode/issues/new",
+  "requestFeatureUrl": "https://github.com/shuv1337/shuvscode/issues/new",
+  "licenseUrl": "https://github.com/shuv1337/shuvscode/blob/shuvscode-main/LICENSE",
+
+  "linkProtectionTrustedDomains": [
+    "https://open-vsx.org",
+    "https://github.com/shuv1337/shuvscode"
+  ],
+
+  "extensionTips": {},
+  "extensionImportantTips": {},
+  "keymapExtensionTips": [],
+  "languageExtensionTips": [],
+  "configBasedExtensionTips": {},
+  "extensionKeywords": {},
+
+  "builtInExtensions": [],
+
+  "extensionEnabledApiProposals": {
+    "jeanp413.open-remote-ssh": [
+      "resolvers",
+      "contribViewsRemote"
+    ]
+  }
+}
