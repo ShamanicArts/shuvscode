@@ -24,6 +24,7 @@ sourcemaps/
 # shuvscode: track the env file (*.env would block it)
 !shuvscode.env
 shuvscode.env.local
+shuvscode-linux-x64/
 stores/snapcraft/insider/*.snap
 stores/snapcraft/stable/*.snap
 font-size/node_modules/
