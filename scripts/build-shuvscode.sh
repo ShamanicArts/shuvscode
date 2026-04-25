@@ -42,4 +42,12 @@ set +u
 . ./build.sh
 set -u
 
-echo "Built: VSCode-linux-${VSCODE_ARCH}/${BINARY_NAME}"
+BUILD_OUTPUT="VSCode-linux-${VSCODE_ARCH}"
+BRANDED_OUTPUT="${APP_NAME}-linux-${VSCODE_ARCH}"
+
+if [[ -d "$REPO_ROOT/$BUILD_OUTPUT" && "$BUILD_OUTPUT" != "$BRANDED_OUTPUT" ]]; then
+  rm -rf "$REPO_ROOT/$BRANDED_OUTPUT"
+  mv "$REPO_ROOT/$BUILD_OUTPUT" "$REPO_ROOT/$BRANDED_OUTPUT"
+fi
+
+echo "Built: ${BRANDED_OUTPUT}/${BINARY_NAME}"

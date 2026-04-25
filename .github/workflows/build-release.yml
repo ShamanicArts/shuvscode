@@ -70,7 +70,7 @@ jobs:
 
       - name: Package tarball
         run: |
-          mv VSCode-linux-x64 shuvscode
+          mv shuvscode-linux-x64 shuvscode
           tar czf shuvscode-linux-x64.tar.gz shuvscode
           sha256sum shuvscode-linux-x64.tar.gz > shuvscode-linux-x64.tar.gz.sha256
 

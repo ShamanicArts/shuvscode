@@ -1,8 +1,19 @@
 diff --git i/src/vs/workbench/contrib/update/browser/update.contribution.ts w/src/vs/workbench/contrib/update/browser/update.contribution.ts
-index 4f19831..44bcae1 100644
+index 4f19831..a342372 100644
 --- i/src/vs/workbench/contrib/update/browser/update.contribution.ts
 +++ w/src/vs/workbench/contrib/update/browser/update.contribution.ts
-@@ -28,11 +28,7 @@ import { URI } from '../../../../base/common/uri.js';
+@@ -9,9 +9,7 @@ import { Registry } from '../../../../platform/registry/common/platform.js';
+ import { IWorkbenchContributionsRegistry, Extensions as WorkbenchExtensions } from '../../../common/contributions.js';
+ import { Categories } from '../../../../platform/action/common/actionCommonCategories.js';
+ import { MenuId, registerAction2, Action2 } from '../../../../platform/actions/common/actions.js';
+-import { ProductContribution, UpdateContribution, CONTEXT_UPDATE_STATE, SwitchProductQualityContribution, showReleaseNotesInEditor, DefaultAccountUpdateContribution } from './update.js';
+-import { UpdateStatusBarContribution } from './updateStatusBarEntry.js';
+-import { UpdateTitleBarContribution } from './updateTitleBarEntry.js';
++import { ProductContribution, CONTEXT_UPDATE_STATE, SwitchProductQualityContribution, showReleaseNotesInEditor } from './update.js';
+ import { LifecyclePhase } from '../../../services/lifecycle/common/lifecycle.js';
+ import product from '../../../../platform/product/common/product.js';
+ import { IUpdateService, StateType } from '../../../../platform/update/common/update.js';
+@@ -28,11 +26,7 @@ import { URI } from '../../../../base/common/uri.js';
  const workbench = Registry.as<IWorkbenchContributionsRegistry>(WorkbenchExtensions.Workbench);
  
  workbench.registerWorkbenchContribution(ProductContribution, LifecyclePhase.Restored);
@@ -14,7 +25,7 @@ index 4f19831..44bcae1 100644
  
  // Release notes
  
-@@ -101,9 +97,6 @@ export class ShowCurrentReleaseNotesFromCurrentFileAction extends Action2 {
+@@ -101,9 +95,6 @@ export class ShowCurrentReleaseNotesFromCurrentFileAction extends Action2 {
  	}
  }
  
