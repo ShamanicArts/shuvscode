@@ -1,0 +1,15 @@
+diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbench.common.main.ts
+index 1d89cb1..856029b 100644
+--- i/src/vs/workbench/workbench.common.main.ts
++++ w/src/vs/workbench/workbench.common.main.ts
+@@ -352,9 +352,7 @@ import './contrib/themes/browser/themes.contribution.js';
+ // Update
+ import './contrib/update/browser/update.contribution.js';
+ 
+-// Surveys
+-import './contrib/surveys/browser/nps.contribution.js';
+-import './contrib/surveys/browser/languageSurveys.contribution.js';
++// Surveys (stripped by !!APP_NAME_LC!!)
+ 
+ // Welcome
+ import './contrib/welcomeGettingStarted/browser/gettingStarted.contribution.js';

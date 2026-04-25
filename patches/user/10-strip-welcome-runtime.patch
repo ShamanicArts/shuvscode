@@ -1,0 +1,18 @@
+diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbench.common.main.ts
+index 1d89cb1..f128f2d 100644
+--- i/src/vs/workbench/workbench.common.main.ts
++++ w/src/vs/workbench/workbench.common.main.ts
+@@ -356,12 +356,7 @@ import './contrib/update/browser/update.contribution.js';
+ import './contrib/surveys/browser/nps.contribution.js';
+ import './contrib/surveys/browser/languageSurveys.contribution.js';
+ 
+-// Welcome
+-import './contrib/welcomeGettingStarted/browser/gettingStarted.contribution.js';
+-import './contrib/welcomeAgentSessions/browser/agentSessionsWelcome.contribution.js';
+-import './contrib/welcomeWalkthrough/browser/walkThrough.contribution.js';
+-import './contrib/welcomeViews/common/viewsWelcome.contribution.js';
+-import './contrib/welcomeViews/common/newFile.contribution.js';
++// Welcome (stripped by !!APP_NAME_LC!!)
+ 
+ // Call Hierarchy
+ import './contrib/callHierarchy/browser/callHierarchy.contribution.js';

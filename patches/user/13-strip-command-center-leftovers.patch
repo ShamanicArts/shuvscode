@@ -1,0 +1,13 @@
+diff --git i/src/vs/workbench/browser/parts/titlebar/titlebarPart.ts w/src/vs/workbench/browser/parts/titlebar/titlebarPart.ts
+index 98895a3..97de448 100644
+--- i/src/vs/workbench/browser/parts/titlebar/titlebarPart.ts
++++ w/src/vs/workbench/browser/parts/titlebar/titlebarPart.ts
+@@ -808,7 +808,7 @@ export class BrowserTitlebarPart extends Part implements ITitlebarPart {
+ 	}
+ 
+ 	protected get isCommandCenterVisible() {
+-		return !this.isCompact && this.configurationService.getValue<boolean>(LayoutSettings.COMMAND_CENTER) !== false;
++		return false;
+ 	}
+ 
+ 	private get editorActionsEnabled(): boolean {

@@ -1,0 +1,26 @@
+diff --git i/src/vs/workbench/contrib/update/browser/update.contribution.ts w/src/vs/workbench/contrib/update/browser/update.contribution.ts
+index 4f19831..44bcae1 100644
+--- i/src/vs/workbench/contrib/update/browser/update.contribution.ts
++++ w/src/vs/workbench/contrib/update/browser/update.contribution.ts
+@@ -28,11 +28,7 @@ import { URI } from '../../../../base/common/uri.js';
+ const workbench = Registry.as<IWorkbenchContributionsRegistry>(WorkbenchExtensions.Workbench);
+ 
+ workbench.registerWorkbenchContribution(ProductContribution, LifecyclePhase.Restored);
+-workbench.registerWorkbenchContribution(UpdateContribution, LifecyclePhase.Restored);
+ workbench.registerWorkbenchContribution(SwitchProductQualityContribution, LifecyclePhase.Restored);
+-workbench.registerWorkbenchContribution(DefaultAccountUpdateContribution, LifecyclePhase.Eventually);
+-workbench.registerWorkbenchContribution(UpdateStatusBarContribution, LifecyclePhase.Restored);
+-workbench.registerWorkbenchContribution(UpdateTitleBarContribution, LifecyclePhase.Restored);
+ 
+ // Release notes
+ 
+@@ -101,9 +97,6 @@ export class ShowCurrentReleaseNotesFromCurrentFileAction extends Action2 {
+ 	}
+ }
+ 
+-if (ShowReleaseNotesAction.AVAILABLE) {
+-	registerAction2(ShowReleaseNotesAction);
+-}
+ registerAction2(ShowCurrentReleaseNotesFromCurrentFileAction);
+ 
+ // Update
