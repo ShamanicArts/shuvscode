@@ -16,6 +16,7 @@
       "workbench.tips.enabled": false,
       "workbench.welcomePage.walkthroughs.openOnInstall": false,
       "workbench.commandPalette.experimental.suggestCommands": false,
+      "workbench.colorTheme": "Night Owl",
 
       "extensions.ignoreRecommendations": true,
       "update.showReleaseNotes": false,

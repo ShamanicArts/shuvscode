@@ -3,7 +3,7 @@ const vscode = require('vscode');
 const FLAG = 'shuvscode.bootstrapped';
 
 const EXTENSIONS = [
-  'Continue.continue',
+  'sdras.night-owl',
   'vscode-icons-team.vscode-icons'
 ];
 
