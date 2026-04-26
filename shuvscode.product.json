@@ -1,15 +1,15 @@
 {
   "nameShort": "shuvscode",
   "nameLong": "shuvscode",
-  "applicationName": "shuvcode",
+  "applicationName": "shuvscode",
   "dataFolderName": ".shuvscode",
   "linuxIconName": "shuvscode",
   "quality": "stable",
   "urlProtocol": "shuvscode",
 
-  "serverApplicationName": "shuvcode-server",
+  "serverApplicationName": "shuvscode-server",
   "serverDataFolderName": ".shuvscode-server",
-  "tunnelApplicationName": "shuvcode-tunnel",
+  "tunnelApplicationName": "shuvscode-tunnel",
 
   "reportIssueUrl": "https://github.com/shuv1337/shuvscode/issues/new",
   "requestFeatureUrl": "https://github.com/shuv1337/shuvscode/issues/new",
@@ -19,6 +19,14 @@
     "https://open-vsx.org",
     "https://github.com/shuv1337/shuvscode"
   ],
+
+  "configurationDefaults": {
+    "extensions.autoCheckUpdates": false,
+    "extensions.autoUpdate": false,
+    "update.showReleaseNotes": false,
+    "workbench.enableExperiments": false,
+    "telemetry.telemetryLevel": "off"
+  },
 
   "extensionTips": {},
   "extensionImportantTips": {},

@@ -19,7 +19,9 @@
       "workbench.colorTheme": "Night Owl",
 
       "extensions.ignoreRecommendations": true,
-      "update.showReleaseNotes": false,
+      "workbench.settings.enableNaturalLanguageSearch": false,
+      "chat.disableAIFeatures": true,
+      "git.autofetch": false,
 
       "window.commandCenter": false,
       "workbench.layoutControl.enabled": false,

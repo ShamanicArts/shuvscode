@@ -1,0 +1,37 @@
+diff --git i/src/vs/base/common/product.ts w/src/vs/base/common/product.ts
+--- i/src/vs/base/common/product.ts
++++ w/src/vs/base/common/product.ts
+@@ -144,6 +144,8 @@
+ 	readonly trustedExtensionProtocolHandlers?: readonly string[];
+ 
+ 	readonly commandPaletteSuggestedCommandIds?: string[];
++
++	readonly configurationDefaults?: IStringDictionary<unknown>;
+ 
+ 	readonly crashReporter?: {
+ 		readonly companyName: string;
+diff --git i/src/vs/workbench/services/environment/electron-browser/environmentService.ts w/src/vs/workbench/services/environment/electron-browser/environmentService.ts
+--- i/src/vs/workbench/services/environment/electron-browser/environmentService.ts
++++ w/src/vs/workbench/services/environment/electron-browser/environmentService.ts
+@@ -5,6 +5,7 @@
+ 
+ import { PerformanceMark } from '../../../../base/common/performance.js';
+ import { IBrowserWorkbenchEnvironmentService } from '../browser/environmentService.js';
++import { IWorkbenchConstructionOptions } from '../../../browser/web.api.js';
+ import { IColorScheme, INativeWindowConfiguration, IOSConfiguration, IPath, IPathsToWaitFor } from '../../../../platform/window/common/window.js';
+ import { IEnvironmentService, INativeEnvironmentService } from '../../../../platform/environment/common/environment.js';
+ import { refineServiceDecorator } from '../../../../platform/instantiation/common/instantiation.js';
+@@ -154,6 +155,13 @@
+ 	@memoize
+ 	get isSessionsWindow(): boolean { return !!this.configuration.isSessionsWindow; }
+ 
++	@memoize
++	get options(): IWorkbenchConstructionOptions {
++		return {
++			configurationDefaults: this.configuration.product.configurationDefaults
++		};
++	}
++
+ 	constructor(
+ 		private readonly configuration: INativeWindowConfiguration,
+ 		productService: IProductService

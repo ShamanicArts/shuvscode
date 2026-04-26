@@ -7,16 +7,17 @@ Ship a branded, packageable `shuvscode` editor (fork of VSCodium/VS Code) for Li
 
 ### Done
 - **Phase 1 (Scaffold):** Branch renamed `master` → `shuvscode-main`, remote `master` deleted. `.gitignore` fixed for `shuvscode.env`. Upstream CI workflows (14 files) removed. `shuvscode.env`, `shuvscode.product.json`, and three scripts (`build-shuvscode.sh`, `prepare-shuvscode-tree.sh`, `sync-upstream.sh`) committed.
-- **Phase 2 (Rebrand):** Build produces `shuvcode` binary with correct product metadata. Tagged `v0.0.1-rebrand`.
+- **Phase 2 (Rebrand):** Build produces `shuvscode` binary with correct product metadata. Tagged `v0.0.1-rebrand`.
 - **Phase 3 (Linux assets):** Appdata, desktop keywords updated. All icon assets generated from `assets/branding/shuvscode-devil-phone-source.png` via `scripts/generate-shuvscode-assets.sh`. Letterpress watermark fixed to 512px resolution.
 - **Phase 4 (Defaults extension):** `src/stable/extensions/shuvscode-defaults/` committed. Verified: no welcome tab, settings contributed by extension.
 - **Phase 5 (CI workflow):** `.github/workflows/build-release.yml` committed. Tested with `v1.112.02750.shuv1` and `v1.112.02758.shuv1`. Build output rebranded from `VSCode-linux-x64` to `shuvscode-linux-x64`.
 - **Phase 6 (AUR package):** `packaging/aur/shuvscode-bin/` has real checksums. `makepkg -sf` and `pacman -U` verified locally.
 - **Phase 7 (Extensions):** Bootstrap extension committed. Baked `detachhead.basedpyright` v1.39.3 and `EditorConfig.EditorConfig` v0.18.2 with SHA256 + deterministic UUIDs. `Continue.continue` was removed from bootstrap/defaults; `sdras.night-owl` is bootstrap-installed and `workbench.colorTheme` defaults to `Night Owl`.
-- **Phase 8 (Strip patches):** 3 user patches in `patches/user/`: welcome+surveys (10), release notes/update UI (11), command center force-off (13). Full local build verified — all strips confirmed in built JS output. Tag `v1.112.02758.shuv1` pushed for CI.
+- **Phase 8 (Strip patches):** User patches strip welcome/surveys (10), release notes/update UI (11), command center force-off (13), AI/notebook/testing startup contributions (14), account/sync/telemetry surfaces (15), heavy optional workbench tools (16), and product-level native configuration defaults (17). Full local build passed for patches 10/11/13/14/15/16; patch 17 was added afterward to carry application-scoped defaults and still needs a follow-up rebuild/smoke.
 
 ### Not done
 - Phase 6: Update AUR PKGBUILD to `v1.112.02758.shuv1` after CI release (new checksums)
+- Full rebuild/smoke for patch 17 product-level configuration defaults
 - Phase 9-11: Smoke tests, upstream sync validation, hard-fork criteria
 
 ## Key context
@@ -28,6 +29,8 @@ Ship a branded, packageable `shuvscode` editor (fork of VSCodium/VS Code) for Li
 - **`*.env` in `.gitignore`** blocks env files; `!shuvscode.env` negation and explicit `shuvscode.env.local` ignore added.
 - **`git-lfs`** must be installed — VS Code repo requires it.
 - **Strip patch gotcha:** patches editing the same file in adjacent lines must be combined into one patch, otherwise context lines conflict when applied sequentially.
+- **Lightweight strategy:** Prefer removing `workbench.common.main.ts` contribution imports first. This avoids deleting whole directories while still preventing startup registration of non-core surfaces.
+- **Application-scoped defaults:** Extension `configurationDefaults` cannot override application-scoped settings such as `extensions.autoUpdate`, `update.showReleaseNotes`, `workbench.enableExperiments`, or `telemetry.telemetryLevel`. Patch 17 wires `shuvscode.product.json.configurationDefaults` into the native workbench environment so those can default off at product level.
 
 ## Important files
 - `shuvscode-revised-plan.md` — full execution plan
@@ -40,12 +43,15 @@ Ship a branded, packageable `shuvscode` editor (fork of VSCodium/VS Code) for Li
 
 ## Next steps
 1. Wait for CI on `v1.112.02758.shuv1`, then update AUR PKGBUILD checksums
-2. GUI smoke pass: welcome suppression, extension activation, Open VSX install, first-run defaults
-3. Phase 9 release smoke tests
-4. Keep `shuvscode-revised-plan.md` updated as the execution plan evolves
+2. Investigate bootstrap extension activation in isolated smoke profiles; manual CLI extension install works, but automatic bootstrap did not install Night Owl/vscode-icons during the first smoke launch
+3. GUI smoke pass: quick start, basic file editing, search, git/scm, terminal, extension install, Night Owl default, product-level defaults cached
+4. Phase 9 release smoke tests
+5. Keep `shuvscode-revised-plan.md` updated as the execution plan evolves
 
 ## Risks / open questions
 - AUR `shuvscode-bin` is currently at `v1.112.02750.shuv1`; needs update after CI release for `v1.112.02758.shuv1`
-- PATH resolves `shuvcode` first to `~/.bun/bin/shuvcode` (different tool); use `/usr/bin/shuvcode` for AUR smoke tests
+- Do not use `shuvcode` for this project; that command belongs to the separate opencode fork. The shuvscode package should expose `/usr/bin/shuvscode`.
 - Remote SSH (open-remote-ssh) is gated and untested
+- Lightweight patches intentionally remove debug, timeline, local history, notebooks, testing, auth/sync, AI/chat/MCP, and telemetry UI contributions. Re-add as defaults/optional extensions if users miss them.
+- Smoke note: product-level defaults cache correctly in a fresh isolated profile. Bootstrap extension did not auto-install Night Owl/vscode-icons during the smoke launch, although `--install-extension sdras.night-owl` works against the same Open VSX setup.
 - Built output is large (`shuvscode-linux-x64/`, ~800MB with a >100MB binary); keep it ignored and publish release artifacts instead of committing it

@@ -33,13 +33,13 @@ conflicts=('shuvscode' 'shuvscode-git' 'shuvscode-electron')
 options=('!strip' '!debug')
 source=(
   "${pkgname}-${pkgver}.tar.gz::https://github.com/shuv1337/shuvscode/releases/download/v${pkgver}/shuvscode-linux-x64.tar.gz"
-  "shuvcode.sh"
+  "shuvscode.sh"
   "shuvscode.desktop"
 )
 sha256sums=(
   'f56c2a72157631c8d2278898f2fe761962473d422d89b87ef958fea7a5c9e0d0'
-  '4dec07c9922378cf239ed9f00144187583a788b94de8e3be063411b52248cc03'
-  '0b3e9bb1178a51a08c2eef3e64455181fa6a63c7c80f7531f2cf27c0346f3a4c'
+  '27281b54125f31c0f89fd5a68b686b9ef10b21f1e8bba1f6eb71e89a43779419'
+  '07d8fc26dba7ef143732980b1bdc497f66815570e16c83a20009524f477ae697'
 )
 
 package() {
@@ -47,8 +47,8 @@ package() {
 
   cp -a "${srcdir}/${_pkgname}/." "${pkgdir}/opt/${_pkgname}/"
 
-  install -Dm755 "${srcdir}/shuvcode.sh" \
-    "${pkgdir}/usr/bin/shuvcode"
+  install -Dm755 "${srcdir}/shuvscode.sh" \
+    "${pkgdir}/usr/bin/shuvscode"
 
   install -Dm644 "${srcdir}/shuvscode.desktop" \
     "${pkgdir}/usr/share/applications/shuvscode.desktop"

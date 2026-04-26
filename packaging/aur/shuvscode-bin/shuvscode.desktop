@@ -1,17 +1,17 @@
 [Desktop Entry]
 Name=shuvscode
 Comment=Opinionated code editor
-Exec=shuvcode %F
+Exec=shuvscode %F
 Icon=shuvscode
 Type=Application
 StartupNotify=false
-StartupWMClass=shuvcode
+StartupWMClass=shuvscode
 Categories=Utility;TextEditor;Development;IDE;
 MimeType=text/plain;inode/directory;
 Actions=new-empty-window;
-Keywords=shuvscode;shuvcode;
+Keywords=shuvscode;
 
 [Desktop Action new-empty-window]
 Name=New Empty Window
-Exec=shuvcode --new-window %F
+Exec=shuvscode --new-window %F
 Icon=shuvscode

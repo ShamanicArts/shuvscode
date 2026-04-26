@@ -18,7 +18,7 @@ Ship a branded, packageable editor first; start gutting workbench features later
 | Target | Linux x86_64 |
 | Primary distro | Arch Linux |
 | App name | `ShuvScode` |
-| CLI binary | `shuvcode` |
+| CLI binary | `shuvscode` |
 | URL protocol | `shuvscode://` |
 | User data isolation | `.shuvscode` / `.shuvscode-server` |
 | Extension registry | Open VSX, inherited from VSCodium |
@@ -291,11 +291,11 @@ These reference VSCodium-specific secrets and repos. Our CI goes in Phase 5.
 cat > shuvscode.env <<'EOF'
 # Branding
 export APP_NAME="ShuvScode"
-export BINARY_NAME="shuvcode"
+export BINARY_NAME="shuvscode"
 export GH_REPO_PATH="shuv1337/shuvscode"
 export ASSETS_REPOSITORY="shuv1337/shuvscode"
 export ORG_NAME="ShuvScode"
-export TUNNEL_APP_NAME="shuvcode-tunnel"
+export TUNNEL_APP_NAME="shuvscode-tunnel"
 export GLOBAL_DIRNAME="shuvscode"
 
 # Build
@@ -320,15 +320,15 @@ cat > shuvscode.product.json <<'EOF'
 {
   "nameShort": "ShuvScode",
   "nameLong": "ShuvScode",
-  "applicationName": "shuvcode",
+  "applicationName": "shuvscode",
   "dataFolderName": ".shuvscode",
   "linuxIconName": "shuvscode",
   "quality": "stable",
   "urlProtocol": "shuvscode",
 
-  "serverApplicationName": "shuvcode-server",
+  "serverApplicationName": "shuvscode-server",
   "serverDataFolderName": ".shuvscode-server",
-  "tunnelApplicationName": "shuvcode-tunnel",
+  "tunnelApplicationName": "shuvscode-tunnel",
 
   "reportIssueUrl": "https://github.com/shuv1337/shuvscode/issues/new",
   "requestFeatureUrl": "https://github.com/shuv1337/shuvscode/issues/new",
@@ -522,7 +522,7 @@ Done when:
 
 # Phase 2 -- First real rebrand
 
-Goal: produce a working `shuvcode` build with product branding overridden by the overlay.
+Goal: produce a working `shuvscode` build with product branding overridden by the overlay.
 
 ## 2.1 Build
 
@@ -553,11 +553,11 @@ Expected:
 
 ```text
 nameShort:              ShuvScode
-applicationName:        shuvcode
+applicationName:        shuvscode
 dataFolderName:         .shuvscode
 linuxIconName:          shuvscode
 urlProtocol:            shuvscode
-serverApplicationName:  shuvcode-server
+serverApplicationName:  shuvscode-server
 serverDataFolderName:   .shuvscode-server
 extensionsGallery:      (Open VSX URLs)
 ```
@@ -565,9 +565,9 @@ extensionsGallery:      (Open VSX URLs)
 ## 2.3 Launch
 
 ```bash
-./VSCode-linux-x64/shuvcode --version
+./VSCode-linux-x64/shuvscode --version
 
-./VSCode-linux-x64/shuvcode \
+./VSCode-linux-x64/shuvscode \
   --user-data-dir=/tmp/shuvscode-phase2-user \
   --extensions-dir=/tmp/shuvscode-phase2-exts
 ```
@@ -575,9 +575,9 @@ extensionsGallery:      (Open VSX URLs)
 Done when:
 
 ```text
-[ ] Binary is `VSCode-linux-x64/shuvcode`.
+[ ] Binary is `VSCode-linux-x64/shuvscode`.
 [ ] Window title says ShuvScode.
-[ ] Product metadata says shuvcode/shuvscode, not codium/vscodium.
+[ ] Product metadata says shuvscode, not shuvcode/codium/vscodium.
 [ ] Issue URL points to shuv1337/shuvscode.
 [ ] Fresh profile does not collide with Code or VSCodium.
 [ ] Open VSX extension search still works.
@@ -635,7 +635,7 @@ Keywords=vscodium;codium;vscode;
 Add ShuvScode keywords:
 
 ```text
-Keywords=shuvscode;shuvcode;vscodium;codium;vscode;
+Keywords=shuvscode;vscodium;codium;vscode;
 ```
 
 Same for `code-url-handler.desktop`.
@@ -669,7 +669,7 @@ source. Do not hand-edit the generated icon outputs.
 rm -rf vscode VSCode-linux-x64
 ./scripts/build-shuvscode.sh
 
-./VSCode-linux-x64/shuvcode \
+./VSCode-linux-x64/shuvscode \
   --user-data-dir=/tmp/shuvscode-icon-user \
   --extensions-dir=/tmp/shuvscode-icon-exts
 ```
@@ -764,7 +764,7 @@ Engine version set to `"*"` because this is a built-in extension that always shi
 rm -rf vscode VSCode-linux-x64
 ./scripts/build-shuvscode.sh
 
-./VSCode-linux-x64/shuvcode \
+./VSCode-linux-x64/shuvscode \
   --user-data-dir=/tmp/shuvscode-defaults-user \
   --extensions-dir=/tmp/shuvscode-defaults-exts
 ```
@@ -935,14 +935,14 @@ Done when:
 [ ] Release contains `shuvscode-linux-x64.tar.gz.sha256`.
 [ ] Tarball extracts to a `shuvscode/` directory.
 [ ] Downloaded tarball launches outside the repo.
-[ ] `shuvscode/shuvcode --version` works from extracted tarball.
+[ ] `shuvscode/shuvscode --version` works from extracted tarball.
 ```
 
 ---
 
 # Phase 6 -- AUR package: `shuvscode-bin`
 
-Goal: install the GitHub release tarball into `/opt/shuvscode`, expose `/usr/bin/shuvcode`, install desktop/icon metadata, and use real checksums.
+Goal: install the GitHub release tarball into `/opt/shuvscode`, expose `/usr/bin/shuvscode`, install desktop/icon metadata, and use real checksums.
 
 ## 6.1 Package skeleton
 
@@ -988,12 +988,12 @@ provides=("shuvscode=${pkgver}")
 conflicts=('shuvscode' 'shuvscode-git' 'shuvscode-electron')
 source=(
   "${pkgname}-${pkgver}.tar.gz::https://github.com/shuv1337/shuvscode/releases/download/v${pkgver}/shuvscode-linux-x64.tar.gz"
-  "shuvcode.sh"
+  "shuvscode.sh"
   "shuvscode.desktop"
 )
 sha256sums=(
   '<release-tarball-sha256>'
-  '<shuvcode-sh-sha256>'
+  '<shuvscode-sh-sha256>'
   '<desktop-sha256>'
 )
 
@@ -1003,8 +1003,8 @@ package() {
   # Tarball extracts to shuvscode/ (top-level dir included in archive)
   cp -a "${srcdir}/${_pkgname}/." "${pkgdir}/opt/${_pkgname}/"
 
-  install -Dm755 "${srcdir}/shuvcode.sh" \
-    "${pkgdir}/usr/bin/shuvcode"
+  install -Dm755 "${srcdir}/shuvscode.sh" \
+    "${pkgdir}/usr/bin/shuvscode"
 
   install -Dm644 "${srcdir}/shuvscode.desktop" \
     "${pkgdir}/usr/share/applications/shuvscode.desktop"
@@ -1025,20 +1025,17 @@ EOF
 Changes from original plan:
 
 - `pkgdesc` notes bundled Electron.
-- `package()` uses `cp -a "${srcdir}/${_pkgname}/."` directly, no cleanup step needed because the tarball extracts into a `shuvscode/` subdirectory (see Phase 5 tarball creation change). The other source files (`shuvcode.sh`, `shuvscode.desktop`) are in `${srcdir}/` at the top level and are NOT inside `shuvscode/`.
+- `package()` uses `cp -a "${srcdir}/${_pkgname}/."` directly, no cleanup step needed because the tarball extracts into a `shuvscode/` subdirectory (see Phase 5 tarball creation change). The other source files (`shuvscode.sh`, `shuvscode.desktop`) are in `${srcdir}/` at the top level and are NOT inside `shuvscode/`.
 
 ## 6.3 Launcher wrapper
 
 ```bash
-cat > shuvcode.sh <<'EOF'
+cat > shuvscode.sh <<'EOF'
 #!/usr/bin/env bash
-exec /opt/shuvscode/shuvcode \
-  --enable-features=UseOzonePlatform \
-  --ozone-platform-hint=auto \
-  "$@"
+exec /opt/shuvscode/bin/shuvscode "$@"
 EOF
 
-chmod +x shuvcode.sh
+chmod +x shuvscode.sh
 ```
 
 ## 6.4 Desktop file
@@ -1048,7 +1045,7 @@ cat > shuvscode.desktop <<'EOF'
 [Desktop Entry]
 Name=ShuvScode
 Comment=Opinionated code editor
-Exec=shuvcode %F
+Exec=shuvscode %F
 Icon=shuvscode
 Type=Application
 StartupNotify=false
@@ -1056,11 +1053,11 @@ StartupWMClass=ShuvScode
 Categories=Utility;TextEditor;Development;IDE;
 MimeType=text/plain;inode/directory;
 Actions=new-empty-window;
-Keywords=shuvscode;shuvcode;
+Keywords=shuvscode;
 
 [Desktop Action new-empty-window]
 Name=New Empty Window
-Exec=shuvcode --new-window %F
+Exec=shuvscode --new-window %F
 Icon=shuvscode
 EOF
 ```
@@ -1085,10 +1082,10 @@ makepkg --printsrcinfo > .SRCINFO
 ```bash
 makepkg -si
 
-which shuvcode
-shuvcode --version
+which shuvscode
+shuvscode --version
 
-shuvcode \
+shuvscode \
   --user-data-dir=/tmp/shuvscode-aur-user \
   --extensions-dir=/tmp/shuvscode-aur-exts
 
@@ -1099,7 +1096,7 @@ Done when:
 
 ```text
 [ ] `makepkg -si` installs cleanly.
-[ ] `/usr/bin/shuvcode` launches.
+[ ] `/usr/bin/shuvscode` launches.
 [ ] App launcher shows correct name/icon.
 [ ] StartupWMClass matches actual WM_CLASS.
 [ ] License is installed.
@@ -1360,7 +1357,7 @@ cd ..
 # Replace branding-sensitive literals only if they appear in the patch.
 sed -i \
   -e 's/ShuvScode/!!APP_NAME!!/g' \
-  -e 's/shuvcode/!!BINARY_NAME!!/g' \
+  -e 's/shuvscode/!!BINARY_NAME!!/g' \
   -e 's/shuvscode/!!APP_NAME_LC!!/g' \
   patches/user/10-strip-something.patch
 
@@ -1388,7 +1385,20 @@ Avoid first-pass deletion of:
 [ ] Entire workbench contrib directories
 ```
 
-## 8.5 Per-patch done criteria
+## 8.5 Lightweight strip batch
+
+Goal: move from branded VS Code to a bare-bones, quick-start editor by removing startup registrations for high-churn or non-core workbench contributions while keeping the basic local editor loop intact.
+
+| Patch | Target | Notes |
+|---|---|---|
+| `14-strip-ai-notebook-testing.patch` | Chat, MCP, inline chat/completions, notebooks, REPL/interactive, testing, remote coding agents | Removes the fastest-moving AI/notebook/test surfaces first. |
+| `15-strip-accounts-sync-telemetry.patch` | Default account, authentication, Settings Sync, edit sessions, share, telemetry/experiment surfaces | Keeps the fork offline-first and avoids account prompts. |
+| `16-strip-heavy-optional-workbench.patch` | Debug, search editor, process explorer, merge/multi-diff editors, comments, external terminal, timeline, local history | Removes nonessential panels/tools from the default workbench. |
+| `17-wire-product-configuration-defaults.patch` | Native workbench environment | Lets `shuvscode.product.json` provide application-scoped defaults for desktop builds. |
+
+Extension defaults now turn off natural-language settings search, chat AI features, Git auto-fetch, and other profile-scoped startup noise. Product-level `configurationDefaults` now turn off application-scoped update/extension auto-update/experiment/telemetry defaults.
+
+## 8.6 Per-patch done criteria
 
 ```text
 [ ] Patch applies from a clean tree.
@@ -1420,9 +1430,9 @@ mkdir -p /tmp/shuvscode-smoke
 
 tar xzf shuvscode-linux-x64.tar.gz -C /tmp/shuvscode-smoke
 
-/tmp/shuvscode-smoke/shuvscode/shuvcode --version
+/tmp/shuvscode-smoke/shuvscode/shuvscode --version
 
-/tmp/shuvscode-smoke/shuvscode/shuvcode \
+/tmp/shuvscode-smoke/shuvscode/shuvscode \
   --user-data-dir=/tmp/shuvscode-smoke-user \
   --extensions-dir=/tmp/shuvscode-smoke-exts
 ```
@@ -1611,11 +1621,11 @@ Then:
 ```bash
 # Branding
 APP_NAME="ShuvScode"
-BINARY_NAME="shuvcode"
+BINARY_NAME="shuvscode"
 GH_REPO_PATH="shuv1337/shuvscode"
 ASSETS_REPOSITORY="shuv1337/shuvscode"
 ORG_NAME="ShuvScode"
-TUNNEL_APP_NAME="shuvcode-tunnel"
+TUNNEL_APP_NAME="shuvscode-tunnel"
 GLOBAL_DIRNAME="shuvscode"
 
 # Build
@@ -1637,11 +1647,11 @@ VSCODE_LATEST="no"
 ```text
 !!APP_NAME!!          -> ShuvScode
 !!APP_NAME_LC!!       -> shuvscode
-!!BINARY_NAME!!       -> shuvcode
+!!BINARY_NAME!!       -> shuvscode
 !!GH_REPO_PATH!!      -> shuv1337/shuvscode
 !!ASSETS_REPOSITORY!! -> shuv1337/shuvscode
 !!ORG_NAME!!          -> ShuvScode
-!!TUNNEL_APP_NAME!!   -> shuvcode-tunnel
+!!TUNNEL_APP_NAME!!   -> shuvscode-tunnel
 !!GLOBAL_DIRNAME!!    -> shuvscode
 !!RELEASE_VERSION!!   -> current release version
 ```
@@ -1725,7 +1735,7 @@ This script runs `prepare_vscode.sh`, which calls `npm ci`. If Node is not set u
 |---|---|
 | 0 | Stock VSCodium builds and launches from the fork repo |
 | 1 | Env, overlay, wrappers, and sync scripts committed; upstream CI removed |
-| 2 | Rebranded `shuvcode` launches with isolated product metadata |
+| 2 | Rebranded `shuvscode` launches with isolated product metadata |
 | 3 | Linux icons/AppStream/desktop keywords are yours |
 | 4 | Defaults extension controls opinionated settings (no upstream overlap) |
 | 5 | Tag push creates release tarball with top-level directory + SHA256 |

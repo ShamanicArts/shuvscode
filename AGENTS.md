@@ -2,7 +2,7 @@
 
 ## Project purpose
 
-This repository packages a branded Linux x64 build of VS Code/VSCodium as `shuvscode`, with the built application currently emitted under `shuvscode-linux-x64/` and the launcher script at `shuvscode-linux-x64/bin/shuvcode`.
+This repository packages a branded Linux x64 build of VS Code/VSCodium as `shuvscode`, with the built application currently emitted under `shuvscode-linux-x64/` and the launcher script at `shuvscode-linux-x64/bin/shuvscode`.
 
 ## Key files and directories
 
@@ -17,14 +17,14 @@ This repository packages a branded Linux x64 build of VS Code/VSCodium as `shuvs
 
 ## Operational notes
 
-- Prefer launching the built app directly with `./shuvscode-linux-x64/bin/shuvcode` from the repository root.
+- Prefer launching the built app directly with `./shuvscode-linux-x64/bin/shuvscode` from the repository root.
 - Use `interactive_shell` for GUI/long-running launches instead of plain `bash` so the process can be monitored or stopped safely.
 - For smoke tests, consider an isolated profile such as `--user-data-dir /tmp/shuvscode-smoke-user-data --extensions-dir /tmp/shuvscode-smoke-extensions` to avoid mutating the user's main editor state.
-- PATH may resolve `shuvcode` to another tool; use the explicit built-app path or `/usr/bin/shuvcode` when testing the installed AUR package.
+- Do not use `shuvcode` for this project; that name belongs to a separate opencode fork. Use the explicit built-app path or `/usr/bin/shuvscode` when testing the installed AUR package.
 - Branding should remain lowercase `shuvscode`.
 - `git-lfs` is required for working with the VS Code source tree.
 
 ## Validation hints
 
-- A basic launch smoke test is: `./shuvscode-linux-x64/bin/shuvcode --version`.
+- A basic launch smoke test is: `./shuvscode-linux-x64/bin/shuvscode --version`.
 - GUI smoke checks from `HANDOFF.md`: welcome suppression, extension activation, Open VSX install, first-run defaults.
