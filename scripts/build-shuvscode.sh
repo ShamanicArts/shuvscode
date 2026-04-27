@@ -42,12 +42,28 @@ set +u
 . ./build.sh
 set -u
 
-BUILD_OUTPUT="VSCode-linux-${VSCODE_ARCH}"
-BRANDED_OUTPUT="${APP_NAME}-linux-${VSCODE_ARCH}"
+case "${OS_NAME}" in
+  osx)
+    VSCODE_PLATFORM="darwin"
+    ;;
+  windows)
+    VSCODE_PLATFORM="win32"
+    ;;
+  *)
+    VSCODE_PLATFORM="linux"
+    ;;
+esac
+
+BUILD_OUTPUT="VSCode-${VSCODE_PLATFORM}-${VSCODE_ARCH}"
+BRANDED_OUTPUT="${APP_NAME}-${VSCODE_PLATFORM}-${VSCODE_ARCH}"
 
 if [[ -d "$REPO_ROOT/$BUILD_OUTPUT" && "$BUILD_OUTPUT" != "$BRANDED_OUTPUT" ]]; then
   rm -rf "$REPO_ROOT/$BRANDED_OUTPUT"
   mv "$REPO_ROOT/$BUILD_OUTPUT" "$REPO_ROOT/$BRANDED_OUTPUT"
 fi
 
-echo "Built: ${BRANDED_OUTPUT}/${BINARY_NAME}"
+if [[ "${VSCODE_PLATFORM}" == "darwin" ]]; then
+  echo "Built: ${BRANDED_OUTPUT}/${APP_NAME}.app"
+else
+  echo "Built: ${BRANDED_OUTPUT}/bin/${BINARY_NAME}"
+fi

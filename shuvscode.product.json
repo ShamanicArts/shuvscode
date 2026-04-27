@@ -4,6 +4,8 @@
   "applicationName": "shuvscode",
   "dataFolderName": ".shuvscode",
   "linuxIconName": "shuvscode",
+  "darwinBundleIdentifier": "io.github.shuv1337.shuvscode",
+  "darwinApplicationCategoryType": "public.app-category.developer-tools",
   "quality": "stable",
   "urlProtocol": "shuvscode",
 

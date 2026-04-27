@@ -18,7 +18,24 @@ fi
 TUNNEL_APPLICATION_NAME="$( node -p "require(\"../product.json\").tunnelApplicationName" )"
 NAME_SHORT="$( node -p "require(\"../product.json\").nameShort" )"
 
+ensure_rust_target() {
+  local target="$1"
+
+  if command -v rustup >/dev/null 2>&1; then
+    rustup target add "${target}"
+    return
+  fi
+
+  if [[ "$(rustc -vV | sed -n 's/^host: //p')" == "${target}" ]]; then
+    return
+  fi
+
+  echo "rustup is required to install Rust target ${target}" >&2
+  exit 127
+}
+
 npm pack @vscode/openssl-prebuilt@0.0.11
+rm -rf openssl
 mkdir openssl
 tar -xvzf vscode-openssl-prebuilt-0.0.11.tgz --strip-components=1 --directory=openssl
 
@@ -32,7 +49,7 @@ if [[ "${OS_NAME}" == "osx" ]]; then
   export OPENSSL_LIB_DIR="$( pwd )/openssl/out/${VSCODE_ARCH}-osx/lib"
   export OPENSSL_INCLUDE_DIR="$( pwd )/openssl/out/${VSCODE_ARCH}-osx/include"
 
-  rustup target add "${VSCODE_CLI_TARGET}"
+  ensure_rust_target "${VSCODE_CLI_TARGET}"
 
   cargo build --release --target "${VSCODE_CLI_TARGET}" --bin=code
 
@@ -50,7 +67,7 @@ elif [[ "${OS_NAME}" == "windows" ]]; then
   export OPENSSL_LIB_DIR="$( pwd )/openssl/out/${VSCODE_ARCH}-windows-static/lib"
   export OPENSSL_INCLUDE_DIR="$( pwd )/openssl/out/${VSCODE_ARCH}-windows-static/include"
 
-  rustup target add "${VSCODE_CLI_TARGET}"
+  ensure_rust_target "${VSCODE_CLI_TARGET}"
 
   cargo build --release --target "${VSCODE_CLI_TARGET}" --bin=code
 
@@ -101,7 +118,7 @@ else
   fi
 
   if [[ -n "${VSCODE_CLI_TARGET}" ]]; then
-    rustup target add "${VSCODE_CLI_TARGET}"
+    ensure_rust_target "${VSCODE_CLI_TARGET}"
 
     cargo build --release --target "${VSCODE_CLI_TARGET}" --bin=code
 

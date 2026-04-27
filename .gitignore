@@ -25,6 +25,7 @@ sourcemaps/
 !shuvscode.env
 shuvscode.env.local
 shuvscode-linux-x64/
+shuvscode-darwin-*/
 stores/snapcraft/insider/*.snap
 stores/snapcraft/stable/*.snap
 font-size/node_modules/
