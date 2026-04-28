@@ -1,32 +1,20 @@
 diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbench.common.main.ts
 --- i/src/vs/workbench/workbench.common.main.ts
 +++ w/src/vs/workbench/workbench.common.main.ts
-@@ -223,8 +223,7 @@
+@@ -232,8 +232,7 @@
  import './contrib/search/browser/search.contribution.js';
  import './contrib/search/browser/searchView.js';
- 
+
 -// Search Editor
 -import './contrib/searchEditor/browser/searchEditor.contribution.js';
 +// Search Editor (stripped by !!APP_NAME_LC!!)
- 
+
  // Sash
  import './contrib/sash/browser/sash.contribution.js';
-@@ -235,31 +234,19 @@
- // SCM
- import './contrib/scm/browser/scm.contribution.js';
- 
--// Debug
--import './contrib/debug/browser/debug.contribution.js';
--import './contrib/debug/browser/debugEditorContribution.js';
--import './contrib/debug/browser/breakpointEditorContribution.js';
--import './contrib/debug/browser/callStackEditorContribution.js';
--import './contrib/debug/browser/repl.js';
--import './contrib/debug/browser/debugViewlet.js';
-+// Debug (stripped by !!APP_NAME_LC!!)
- 
+@@ -256,14 +255,9 @@
  // Markers
  import './contrib/markers/browser/markers.contribution.js';
- 
+
 -// Process Explorer
 -import './contrib/processExplorer/browser/processExplorer.contribution.js';
 -
@@ -38,37 +26,29 @@ diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbe
 +// Process Explorer (stripped by !!APP_NAME_LC!!)
 +// Merge Editor (stripped by !!APP_NAME_LC!!)
 +// Multi Diff Editor (stripped by !!APP_NAME_LC!!)
- 
+
  // Commands
  import './contrib/commands/common/commands.contribution.js';
- 
--// Comments
--import './contrib/comments/browser/comments.contribution.js';
-+// Comments (stripped by !!APP_NAME_LC!!)
- 
- // URL Support
- import './contrib/url/browser/url.contribution.js';
-@@ -284,8 +271,7 @@
+@@ -294,8 +288,7 @@
  // Terminal
  import './contrib/terminal/terminal.all.js';
- 
+
 -// External terminal
 -import './contrib/externalTerminal/browser/externalTerminal.contribution.js';
 +// External terminal (stripped by !!APP_NAME_LC!!)
- 
+
  // Relauncher
  import './contrib/relauncher/browser/relauncher.contribution.js';
-@@ -361,11 +347,8 @@
+@@ -371,11 +364,10 @@
  // Code Actions
  import './contrib/codeActions/browser/codeActions.contribution.js';
- 
--// Timeline
--import './contrib/timeline/browser/timeline.contribution.js';
--
+
+ // Timeline
+ import './contrib/timeline/browser/timeline.contribution.js';
+
 -// Local History
 -import './contrib/localHistory/browser/localHistory.contribution.js';
-+// Timeline (stripped by !!APP_NAME_LC!!)
 +// Local History (stripped by !!APP_NAME_LC!!)
- 
+
  // Workspace
  import './contrib/workspace/browser/workspace.contribution.js';

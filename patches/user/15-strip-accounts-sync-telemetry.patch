@@ -1,10 +1,10 @@
 diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbench.common.main.ts
 --- i/src/vs/workbench/workbench.common.main.ts
 +++ w/src/vs/workbench/workbench.common.main.ts
-@@ -186,19 +186,15 @@
- 
+@@ -186,22 +186,18 @@
+
  //#region --- workbench contributions
- 
+
 -// Default Account
 -import './services/accounts/browser/defaultAccount.js';
 -
@@ -12,22 +12,25 @@ diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbe
 -import './contrib/telemetry/browser/telemetry.contribution.js';
 +// Default Account (stripped by !!APP_NAME_LC!!)
 +// Telemetry (stripped by !!APP_NAME_LC!!)
- 
+
  // Preferences
  import './contrib/preferences/browser/preferences.contribution.js';
  import './contrib/preferences/browser/keybindingsEditorContribution.js';
  import './contrib/preferences/browser/preferencesSearch.js';
- 
+
 -// Performance
 -import './contrib/performance/browser/performance.contribution.js';
 +// Performance telemetry UI (stripped by !!APP_NAME_LC!!)
- 
- // Notebook (stripped by !!APP_NAME_LC!!)
- // Speech (stripped by !!APP_NAME_LC!!)
-@@ -352,17 +348,13 @@
+
+ // Notebook
+ import './contrib/notebook/browser/notebook.contribution.js';
+
+ // Speech
+ import './contrib/speech/browser/speech.contribution.js';
+@@ -365,17 +361,13 @@
  // Language Status
  import './contrib/languageStatus/browser/languageStatus.contribution.js';
- 
+
 -// Authentication
 -import './contrib/authentication/browser/authentication.contribution.js';
 -
@@ -35,48 +38,53 @@ diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbe
 -import './contrib/userDataSync/browser/userDataSync.contribution.js';
 +// Authentication (stripped by !!APP_NAME_LC!!)
 +// User Data Sync (stripped by !!APP_NAME_LC!!)
- 
+
  // User Data Profiles
  import './contrib/userDataProfile/browser/userDataProfile.contribution.js';
- 
+
 -// Continue Edit Session
 -import './contrib/editSessions/browser/editSessions.contribution.js';
 +// Continue Edit Session (stripped by !!APP_NAME_LC!!)
- 
+
  // Remote Coding Agents (stripped by !!APP_NAME_LC!!)
- 
-@@ -384,20 +376,14 @@
+
+@@ -401,31 +393,27 @@
  // List
  import './contrib/list/browser/list.contribution.js';
- 
+
 -// Accessibility Signals
 -import './contrib/accessibilitySignals/browser/accessibilitySignal.contribution.js';
 -
 -// Bracket Pair Colorizer 2 Telemetry
 -import './contrib/bracketPairColorizer2Telemetry/browser/bracketPairColorizer2Telemetry.contribution.js';
-+// Accessibility Signals (stripped by !!APP_NAME_LC!!)
++// Accessibility Signals service core
++import './contrib/accessibilitySignals/browser/accessibilitySignal.contribution.js';
 +// Bracket Pair Colorizer 2 Telemetry (stripped by !!APP_NAME_LC!!)
- 
+
  // Accessibility
  import './contrib/accessibility/browser/accessibility.contribution.js';
- 
+
 -// Metered Connection
 -import './contrib/meteredConnection/browser/meteredConnection.contribution.js';
 -
 -// Share
 -import './contrib/share/browser/share.contribution.js';
 +// Metered Connection (stripped by !!APP_NAME_LC!!)
-+// Share (stripped by !!APP_NAME_LC!!)
- 
++
++// Share
++import './contrib/share/browser/share.contribution.js';
+
  // Synchronized Scrolling
  import './contrib/scrollLocking/browser/scrollLocking.contribution.js';
-@@ -407,8 +393,7 @@
+
+ // Inline Completions (stripped by !!APP_NAME_LC!!)
+
  // Drop or paste into
  import './contrib/dropOrPasteInto/browser/dropOrPasteInto.contribution.js';
- 
+
 -// Edit Telemetry
 -import './contrib/editTelemetry/browser/editTelemetry.contribution.js';
 +// Edit Telemetry (stripped by !!APP_NAME_LC!!)
- 
+
  // Opener
  import './contrib/opener/browser/opener.contribution.js';
