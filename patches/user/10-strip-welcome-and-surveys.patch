@@ -1,28 +1,34 @@
-diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbench.common.main.ts
-index 2c3be688..c8ae3def 100644
---- i/src/vs/workbench/workbench.common.main.ts
-+++ w/src/vs/workbench/workbench.common.main.ts
-@@ -366,20 +366,9 @@ import './contrib/themes/browser/themes.contribution.js';
+diff --git a/src/vs/workbench/workbench.common.main.ts b/src/vs/workbench/workbench.common.main.ts
+--- a/src/vs/workbench/workbench.common.main.ts
++++ b/src/vs/workbench/workbench.common.main.ts
+@@ import './contrib/themes/browser/themes.contribution.js';
  // Update
  import './contrib/update/browser/update.contribution.js';
  
 -// Surveys
 -import './contrib/surveys/browser/nps.contribution.js';
 -import './contrib/surveys/browser/languageSurveys.contribution.js';
--
++// Surveys (stripped by !!APP_NAME_LC!!)
++// import './contrib/surveys/browser/nps.contribution.js';
++// import './contrib/surveys/browser/languageSurveys.contribution.js';
+ 
 -// Welcome
 -import './contrib/welcomeGettingStarted/browser/gettingStarted.contribution.js';
 -import './contrib/welcomeAgentSessions/browser/agentSessionsWelcome.contribution.js';
 -import './contrib/welcomeWalkthrough/browser/walkThrough.contribution.js';
 -import './contrib/welcomeViews/common/viewsWelcome.contribution.js';
 -import './contrib/welcomeViews/common/newFile.contribution.js';
--
++// Welcome (stripped by !!APP_NAME_LC!!)
++// import './contrib/welcomeGettingStarted/browser/gettingStarted.contribution.js';
++// import './contrib/welcomeAgentSessions/browser/agentSessionsWelcome.contribution.js';
++// import './contrib/welcomeWalkthrough/browser/walkThrough.contribution.js';
++// import './contrib/welcomeViews/common/viewsWelcome.contribution.js';
++// import './contrib/welcomeViews/common/newFile.contribution.js';
+ 
 -// Welcome Onboarding
 -import './contrib/welcomeOnboarding/browser/welcomeOnboarding.contribution.js';
--
-+// Surveys (stripped by shuvscode)
-+// Welcome (stripped by shuvscode)
-+// Welcome Onboarding (stripped by shuvscode)
++// Welcome Onboarding (stripped by !!APP_NAME_LC!!)
++// import './contrib/welcomeOnboarding/browser/welcomeOnboarding.contribution.js';
+ 
  // Call Hierarchy
  import './contrib/callHierarchy/browser/callHierarchy.contribution.js';
- 

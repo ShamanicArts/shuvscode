@@ -1,55 +1,57 @@
-diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbench.common.main.ts
---- i/src/vs/workbench/workbench.common.main.ts
-+++ w/src/vs/workbench/workbench.common.main.ts
-@@ -232,8 +232,7 @@
+diff --git a/src/vs/workbench/workbench.common.main.ts b/src/vs/workbench/workbench.common.main.ts
+--- a/src/vs/workbench/workbench.common.main.ts
++++ b/src/vs/workbench/workbench.common.main.ts
+@@ import './contrib/inlineCompletions/browser/renameSymbolTrackerService.js';
  import './contrib/search/browser/search.contribution.js';
  import './contrib/search/browser/searchView.js';
-
+ 
 -// Search Editor
 -import './contrib/searchEditor/browser/searchEditor.contribution.js';
-+// Search Editor (stripped by shuvscode)
-
++// Search Editor (stripped by !!APP_NAME_LC!!)
++// import './contrib/searchEditor/browser/searchEditor.contribution.js';
+ 
  // Sash
  import './contrib/sash/browser/sash.contribution.js';
-@@ -256,14 +255,9 @@
+@@ import './contrib/debug/browser/debugViewlet.js';
  // Markers
  import './contrib/markers/browser/markers.contribution.js';
-
+ 
 -// Process Explorer
 -import './contrib/processExplorer/browser/processExplorer.contribution.js';
--
++// Process Explorer (stripped by !!APP_NAME_LC!!)
++// import './contrib/processExplorer/browser/processExplorer.contribution.js';
+ 
 -// Merge Editor
 -import './contrib/mergeEditor/browser/mergeEditor.contribution.js';
--
++// Merge Editor (stripped by !!APP_NAME_LC!!)
++// import './contrib/mergeEditor/browser/mergeEditor.contribution.js';
+ 
 -// Multi Diff Editor
 -import './contrib/multiDiffEditor/browser/multiDiffEditor.contribution.js';
-+// Process Explorer (stripped by shuvscode)
-+// Merge Editor (stripped by shuvscode)
-+// Multi Diff Editor (stripped by shuvscode)
-
++// Multi Diff Editor (stripped by !!APP_NAME_LC!!)
++// import './contrib/multiDiffEditor/browser/multiDiffEditor.contribution.js';
+ 
  // Commands
  import './contrib/commands/common/commands.contribution.js';
-@@ -294,8 +288,7 @@
- // Terminal
- import './contrib/terminal/terminal.all.js';
-
--// External terminal
--import './contrib/externalTerminal/browser/externalTerminal.contribution.js';
-+// External terminal (stripped by shuvscode)
-
- // Relauncher
- import './contrib/relauncher/browser/relauncher.contribution.js';
-@@ -371,12 +364,11 @@
- // Code Actions
- import './contrib/codeActions/browser/codeActions.contribution.js';
-
- // Timeline
+@@ import './contrib/codeActions/browser/codeActions.contribution.js';
  import './contrib/timeline/browser/timeline.contribution.js';
  import './contrib/timeline/browser/timeline.service.contribution.js';
-
+ 
 -// Local History
 -import './contrib/localHistory/browser/localHistory.contribution.js';
-+// Local History (stripped by shuvscode)
-
++// Local History (stripped by !!APP_NAME_LC!!)
++// import './contrib/localHistory/browser/localHistory.contribution.js';
+ 
  // Workspace
  import './contrib/workspace/browser/workspace.contribution.js';
+@@ import './contrib/share/browser/share.contribution.js';
+ // Synchronized Scrolling
+ import './contrib/scrollLocking/browser/scrollLocking.contribution.js';
+ 
+-// Inline Completions
+-import './contrib/inlineCompletions/browser/inlineCompletions.contribution.js';
++// Inline Completions (stripped by !!APP_NAME_LC!!)
++// import './contrib/inlineCompletions/browser/inlineCompletions.contribution.js';
+ 
+ // Drop or paste into
+ import './contrib/dropOrPasteInto/browser/dropOrPasteInto.contribution.js';

@@ -1,53 +1,76 @@
-diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbench.common.main.ts
---- i/src/vs/workbench/workbench.common.main.ts
-+++ w/src/vs/workbench/workbench.common.main.ts
-@@ -216,15 +216,15 @@
- // Speech
- import './contrib/speech/browser/speech.contribution.js';
+diff --git a/src/vs/workbench/workbench.common.main.ts b/src/vs/workbench/workbench.common.main.ts
+--- a/src/vs/workbench/workbench.common.main.ts
++++ b/src/vs/workbench/workbench.common.main.ts
+@@ registerSingleton(IAllowedMcpServersService, AllowedMcpServersService, Instantia
+ 
+ //#region --- workbench contributions
+ 
+-// Default Account
+-import './services/accounts/browser/defaultAccount.js';
++// Default Account (stripped by !!APP_NAME_LC!!)
++// import './services/accounts/browser/defaultAccount.js';
+ 
+-// Account Policy Gate
+-import './services/policies/browser/accountPolicyGate.contribution.js';
++// Account Policy Gate (stripped by !!APP_NAME_LC!!)
++// import './services/policies/browser/accountPolicyGate.contribution.js';
+ 
+-// Telemetry
+-import './contrib/telemetry/browser/telemetry.contribution.js';
++// Telemetry (stripped by !!APP_NAME_LC!!)
++// import './contrib/telemetry/browser/telemetry.contribution.js';
+ 
+ // Preferences
+ import './contrib/preferences/browser/preferences.contribution.js';
+ import './contrib/preferences/browser/keybindingsEditorContribution.js';
+ import './contrib/preferences/browser/preferencesSearch.js';
+ 
+-// Performance
+-import './contrib/performance/browser/performance.contribution.js';
++// Performance (stripped by !!APP_NAME_LC!!)
++// import './contrib/performance/browser/performance.contribution.js';
+ 
+-// Notebook
+-import './contrib/notebook/browser/notebook.contribution.js';
++// Notebook (stripped by !!APP_NAME_LC!!)
++// import './contrib/notebook/browser/notebook.contribution.js';
+ 
+-// Speech
+-import './contrib/speech/browser/speech.contribution.js';
++// Speech (stripped by !!APP_NAME_LC!!)
++// import './contrib/speech/browser/speech.contribution.js';
  
 -// Chat
-+// Chat / MCP service core
++// Chat (core services kept for terminal)
  import './contrib/chat/browser/chat.contribution.js';
 -import './contrib/chat/browser/chat.view.contribution.js';
- import './contrib/inlineChat/browser/inlineChat.contribution.js';
+-import './contrib/inlineChat/browser/inlineChat.contribution.js';
++// import './contrib/chat/browser/chat.view.contribution.js';
++// import './contrib/inlineChat/browser/inlineChat.contribution.js';
  import './contrib/mcp/browser/mcp.contribution.js';
 -import './contrib/mcp/browser/mcp.view.contribution.js';
- import './contrib/chat/browser/chatSessions/chatSessions.contribution.js';
- import './contrib/chat/browser/contextContrib/chatContext.contribution.js';
+-import './contrib/chat/browser/chatSessions/chatSessions.contribution.js';
+-import './contrib/chat/browser/contextContrib/chatContext.contribution.js';
 -import './contrib/imageCarousel/browser/imageCarousel.contribution.js';
-+// Image carousel (stripped by shuvscode)
-+// chat.view (stripped by shuvscode)
-+// mcp.view (stripped by shuvscode)
++// import './contrib/mcp/browser/mcp.view.contribution.js';
++// import './contrib/chat/browser/chatSessions/chatSessions.contribution.js';
++// import './contrib/chat/browser/contextContrib/chatContext.contribution.js';
++// import './contrib/imageCarousel/browser/imageCarousel.contribution.js';
  
- // Interactive
- import './contrib/interactive/browser/interactive.contribution.js';
-@@ -250,8 +250,7 @@
- import './contrib/bulkEdit/browser/bulkEditService.js';
- import './contrib/bulkEdit/browser/preview/bulkEdit.contribution.js';
+-// Interactive
+-import './contrib/interactive/browser/interactive.contribution.js';
++// Interactive (stripped by !!APP_NAME_LC!!)
++// import './contrib/interactive/browser/interactive.contribution.js';
  
--// Rename Symbol Tracker for Inline completions.
--import './contrib/inlineCompletions/browser/renameSymbolTrackerService.js';
-+// Inline completions rename tracker (stripped by shuvscode)
+-// repl
+-import './contrib/replNotebook/browser/repl.contribution.js';
++// repl (stripped by !!APP_NAME_LC!!)
++// import './contrib/replNotebook/browser/repl.contribution.js';
  
- // Search
- import './contrib/search/browser/search.contribution.js';
-@@ -397,8 +396,7 @@
- // Continue Edit Session
- import './contrib/editSessions/browser/editSessions.contribution.js';
+-// Testing
+-import './contrib/testing/browser/testing.contribution.js';
++// Testing (stripped by !!APP_NAME_LC!!)
++// import './contrib/testing/browser/testing.contribution.js';
  
--// Remote Coding Agents
--import './contrib/remoteCodingAgents/browser/remoteCodingAgents.contribution.js';
-+// Remote Coding Agents (stripped by shuvscode)
- 
- // Code Actions
- import './contrib/codeActions/browser/codeActions.contribution.js';
-@@ -437,8 +435,7 @@
- // Synchronized Scrolling
- import './contrib/scrollLocking/browser/scrollLocking.contribution.js';
- 
--// Inline Completions
--import './contrib/inlineCompletions/browser/inlineCompletions.contribution.js';
-+// Inline Completions (stripped by shuvscode)
- 
- // Drop or paste into
- import './contrib/dropOrPasteInto/browser/dropOrPasteInto.contribution.js';
+ // Logs
+ import './contrib/logs/common/logs.contribution.js';
