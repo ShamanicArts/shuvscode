@@ -36,7 +36,7 @@ apply_patch() {
 
   if ! git apply --ignore-whitespace "$1"; then
     echo failed to apply patch "$1" >&2
-    exit 1
+    return 1
   fi
 
   mv -f $1{.bak,}

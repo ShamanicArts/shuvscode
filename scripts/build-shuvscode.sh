@@ -44,6 +44,12 @@ jq -s '.[0] * .[1]' "$orig_product" shuvscode.product.json > "$REPO_ROOT/product
 # Upstream scripts assume some vars can be unset.
 set +u
 . ./get_repo.sh
+
+# Patch build tools for environment compatibility
+if [[ -f vscode/build/npm/preinstall.ts && -f vscode/build/lib/optimize.ts ]]; then
+  python3 scripts/patch-build-tools.py
+fi
+
 . ./build.sh
 set -u
 
