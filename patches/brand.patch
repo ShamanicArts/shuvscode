@@ -787,11 +787,11 @@ index d814c0b..66237e0 100644
 +++ b/src/vs/workbench/contrib/chat/common/promptSyntax/languageProviders/promptValidator.ts
 @@ -248,5 +248,5 @@ export class PromptValidator {
  							if (validGithubCopilotAttributeNames.value.has(attribute.key)) {
--								report(toMarker(localize('promptValidator.ignoredAttribute.vscode-agent', "Attribute '{0}' is ignored when running locally in VS Code.", attribute.key), attribute.range, MarkerSeverity.Info));
-+								report(toMarker(localize('promptValidator.ignoredAttribute.vscode-agent', "Attribute '{0}' is ignored when running locally in shuvscode.", attribute.key), attribute.range, MarkerSeverity.Info));
+-								report(toMarker(localize('promptValidator.ignoredAttribute.vscode-agent', "Attribute '{0}' is ignored when running locally in VS Code.", attribute.key), attribute.range, MarkerSeverity.Hint, [MarkerTag.Unnecessary]));
++								report(toMarker(localize('promptValidator.ignoredAttribute.vscode-agent', "Attribute '{0}' is ignored when running locally in shuvscode.", attribute.key), attribute.range, MarkerSeverity.Hint, [MarkerTag.Unnecessary]));
  							} else {
--								report(toMarker(localize('promptValidator.unknownAttribute.vscode-agent', "Attribute '{0}' is not supported in VS Code agent files. Supported: {1}.", attribute.key, supportedNames.value), attribute.range, MarkerSeverity.Warning));
-+								report(toMarker(localize('promptValidator.unknownAttribute.vscode-agent', "Attribute '{0}' is not supported in shuvscode agent files. Supported: {1}.", attribute.key, supportedNames.value), attribute.range, MarkerSeverity.Warning));
+-								report(toMarker(localize('promptValidator.unknownAttribute.vscode-agent', "Attribute '{0}' is not supported in VS Code agent files. Supported: {1}.", attribute.key, supportedNames.value), attribute.range, MarkerSeverity.Hint, [MarkerTag.Unnecessary]));
++								report(toMarker(localize('promptValidator.unknownAttribute.vscode-agent', "Attribute '{0}' is not supported in shuvscode agent files. Supported: {1}.", attribute.key, supportedNames.value), attribute.range, MarkerSeverity.Hint, [MarkerTag.Unnecessary]));
  							}
 diff --git a/src/vs/workbench/contrib/debug/browser/debugAdapterManager.ts b/src/vs/workbench/contrib/debug/browser/debugAdapterManager.ts
 index 0b9ced3..731d952 100644
@@ -1067,8 +1067,8 @@ index 132db6d..0dc7abe 100644
  		type: 'object',
 @@ -478,3 +478,3 @@ const terminalConfiguration: IStringDictionary<IConfigurationPropertySchema> = {
  		restricted: true,
--		markdownDescription: localize('terminal.integrated.windowsUseConptyDll', "Whether to use the experimental conpty.dll (v1.23.251008001) shipped with VS Code, instead of the one bundled with Windows."),
-+		markdownDescription: localize('terminal.integrated.windowsUseConptyDll', "Whether to use the experimental conpty.dll (v1.23.251008001) shipped with shuvscode, instead of the one bundled with Windows."),
+-		markdownDescription: localize('terminal.integrated.windowsUseConptyDll', "Whether to use the experimental conpty.dll (v1.25.260303002) shipped with VS Code, instead of the one bundled with Windows."),
++		markdownDescription: localize('terminal.integrated.windowsUseConptyDll', "Whether to use the experimental conpty.dll (v1.25.260303002) shipped with shuvscode, instead of the one bundled with Windows."),
  		type: 'boolean',
 @@ -617,3 +617,3 @@ const terminalConfiguration: IStringDictionary<IConfigurationPropertySchema> = {
  		restricted: true,
@@ -1175,7 +1175,7 @@ index 60f47c9..eb2c4b8 100644
 -		title: localize('gettingStarted.newWorkspaceChat.title', "Generate New Workspace..."),
 -		description: localize('gettingStarted.newWorkspaceChat.description', "Chat to create a new workspace"),
 -		icon: Codicon.chatSparkle,
--		when: '!isWeb && !chatSetupHidden',
+-		when: '!isWeb && !chatSetupHidden && !chatSetupDisabledInWorkspace',
 -		content: {
 -			type: 'startEntry',
 -			command: 'command:welcome.newWorkspaceChat',
@@ -1201,7 +1201,7 @@ index 60f47c9..eb2c4b8 100644
 -		id,
 -		title: CopilotStepTitle,
 -		description,
--		when: `${when} && !chatSetupHidden`,
+-		when: `${when} && !chatSetupHidden && !chatSetupDisabledInWorkspace`,
 -		media: {
 -			type: 'svg', altText: 'VS Code Copilot multi file edits', path: 'multi-file-edits.svg'
 -		},
@@ -1221,10 +1221,10 @@ index 60f47c9..eb2c4b8 100644
  		next: 'Beginner',
 @@ -263,6 +228,2 @@ export const walkthroughs: GettingStartedWalkthroughContent = [
  			steps: [
--				createCopilotSetupStep('CopilotSetupAnonymous', CopilotAnonymousButton, 'chatAnonymous && !chatSetupInstalled', true),
+-				createCopilotSetupStep('CopilotSetupAnonymous', CopilotAnonymousButton, 'chatAnonymous && !chatSetupCompleted', true),
 -				createCopilotSetupStep('CopilotSetupSignedOut', CopilotSignedOutButton, 'chatEntitlementSignedOut && !chatAnonymous', false),
--				createCopilotSetupStep('CopilotSetupComplete', CopilotCompleteButton, 'chatSetupInstalled && !chatSetupDisabled && (chatAnonymous || chatPlanPro || chatPlanProPlus || chatPlanBusiness || chatPlanEnterprise || chatPlanFree)', false),
--				createCopilotSetupStep('CopilotSetupSignedIn', CopilotSignedInButton, '!chatEntitlementSignedOut && (!chatSetupInstalled || chatSetupDisabled || chatPlanCanSignUp)', false),
+-				createCopilotSetupStep('CopilotSetupComplete', CopilotCompleteButton, 'chatSetupCompleted && !chatSetupDisabled && (chatAnonymous || chatPlanPro || chatPlanProPlus || chatPlanMax || chatPlanBusiness || chatPlanEnterprise || chatPlanFree)', false),
+-				createCopilotSetupStep('CopilotSetupSignedIn', CopilotSignedInButton, '!chatEntitlementSignedOut && (!chatSetupCompleted || chatSetupDisabled || chatPlanCanSignUp)', false),
  				{
 @@ -280,4 +241,4 @@ export const walkthroughs: GettingStartedWalkthroughContent = [
  					title: localize('gettingStarted.videoTutorial.title', "Watch video tutorials"),

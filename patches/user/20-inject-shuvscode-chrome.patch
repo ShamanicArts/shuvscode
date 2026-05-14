@@ -1,0 +1,31 @@
+Inject shuvscode's restrained chrome stylesheet into the desktop workbench.
+
+This intentionally avoids the earlier Ember pass: no red titlebar blob, no top
+activity bar, no blanket red repaint. It only adds shape language (angled tabs,
+switchboard-style buttons) and lets the Phosphor product icon theme carry most
+of the differentiation.
+
+diff --git i/src/vs/code/electron-browser/workbench/workbench.html w/src/vs/code/electron-browser/workbench/workbench.html
+--- i/src/vs/code/electron-browser/workbench/workbench.html
++++ w/src/vs/code/electron-browser/workbench/workbench.html
+@@ -60,6 +60,9 @@
+ 
+ 		<!-- Workbench CSS -->
+ 		<link rel="stylesheet" href="../../../workbench/workbench.desktop.main.css">
++
++		<!-- shuvscode brand chrome -->
++		<link rel="stylesheet" href="./shuvscode.css">
+ 	</head>
+ 
+ 	<body aria-label="">
+diff --git i/build/gulpfile.vscode.ts w/build/gulpfile.vscode.ts
+--- i/build/gulpfile.vscode.ts
++++ w/build/gulpfile.vscode.ts
+@@ -69,6 +69,7 @@ const vscodeResourceIncludes = [
+ 	// Workbench
+ 	'out-build/vs/code/electron-browser/workbench/workbench.html',
+ 	'out-build/vs/sessions/electron-browser/sessions.html',
++	'out-build/vs/code/electron-browser/workbench/shuvscode.css',
+ 
+ 	// Electron Preload
+ 	'out-build/vs/base/parts/sandbox/electron-browser/preload.js',

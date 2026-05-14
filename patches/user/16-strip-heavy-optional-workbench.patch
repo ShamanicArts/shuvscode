@@ -7,7 +7,7 @@ diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbe
 
 -// Search Editor
 -import './contrib/searchEditor/browser/searchEditor.contribution.js';
-+// Search Editor (stripped by !!APP_NAME_LC!!)
++// Search Editor (stripped by shuvscode)
 
  // Sash
  import './contrib/sash/browser/sash.contribution.js';
@@ -23,9 +23,9 @@ diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbe
 -
 -// Multi Diff Editor
 -import './contrib/multiDiffEditor/browser/multiDiffEditor.contribution.js';
-+// Process Explorer (stripped by !!APP_NAME_LC!!)
-+// Merge Editor (stripped by !!APP_NAME_LC!!)
-+// Multi Diff Editor (stripped by !!APP_NAME_LC!!)
++// Process Explorer (stripped by shuvscode)
++// Merge Editor (stripped by shuvscode)
++// Multi Diff Editor (stripped by shuvscode)
 
  // Commands
  import './contrib/commands/common/commands.contribution.js';
@@ -35,20 +35,21 @@ diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbe
 
 -// External terminal
 -import './contrib/externalTerminal/browser/externalTerminal.contribution.js';
-+// External terminal (stripped by !!APP_NAME_LC!!)
++// External terminal (stripped by shuvscode)
 
  // Relauncher
  import './contrib/relauncher/browser/relauncher.contribution.js';
-@@ -371,11 +364,10 @@
+@@ -371,12 +364,11 @@
  // Code Actions
  import './contrib/codeActions/browser/codeActions.contribution.js';
 
  // Timeline
  import './contrib/timeline/browser/timeline.contribution.js';
+ import './contrib/timeline/browser/timeline.service.contribution.js';
 
 -// Local History
 -import './contrib/localHistory/browser/localHistory.contribution.js';
-+// Local History (stripped by !!APP_NAME_LC!!)
++// Local History (stripped by shuvscode)
 
  // Workspace
  import './contrib/workspace/browser/workspace.contribution.js';

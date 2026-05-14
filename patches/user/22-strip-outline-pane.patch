@@ -1,0 +1,14 @@
+diff --git a/src/vs/workbench/workbench.common.main.ts b/src/vs/workbench/workbench.common.main.ts
+--- a/src/vs/workbench/workbench.common.main.ts
++++ b/src/vs/workbench/workbench.common.main.ts
+@@ -362,9 +362,7 @@
+ // Type Hierarchy
+ import './contrib/typeHierarchy/browser/typeHierarchy.contribution.js';
+ 
+-// Outline
+-import './contrib/codeEditor/browser/outline/documentSymbolsOutline.js';
+-import './contrib/outline/browser/outline.contribution.js';
++// Outline (stripped by shuvscode)
+ 
+ // Language Detection
+ import './contrib/languageDetection/browser/languageDetection.contribution.js';

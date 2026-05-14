@@ -1,0 +1,20 @@
+{
+  "name": "shuvscode-phosphor-product-icons",
+  "displayName": "shuvscode Phosphor Product Icons",
+  "description": "A Phosphor-based product icon theme for shuvscode's custom workbench chrome.",
+  "version": "0.0.1",
+  "publisher": "shuvscode",
+  "engines": {
+    "vscode": "*"
+  },
+  "categories": ["Themes"],
+  "contributes": {
+    "productIconThemes": [
+      {
+        "id": "shuvscode-phosphor",
+        "label": "shuvscode Phosphor",
+        "path": "./producticons/shuvscode-phosphor-product-icon-theme.json"
+      }
+    ]
+  }
+}

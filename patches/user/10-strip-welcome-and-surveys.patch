@@ -1,8 +1,8 @@
 diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbench.common.main.ts
-index 1d89cb1..77fb88a 100644
+index 2c3be688..c8ae3def 100644
 --- i/src/vs/workbench/workbench.common.main.ts
 +++ w/src/vs/workbench/workbench.common.main.ts
-@@ -352,17 +352,8 @@ import './contrib/themes/browser/themes.contribution.js';
+@@ -366,20 +366,9 @@ import './contrib/themes/browser/themes.contribution.js';
  // Update
  import './contrib/update/browser/update.contribution.js';
  
@@ -17,8 +17,12 @@ index 1d89cb1..77fb88a 100644
 -import './contrib/welcomeViews/common/viewsWelcome.contribution.js';
 -import './contrib/welcomeViews/common/newFile.contribution.js';
 -
-+// Surveys (stripped by !!APP_NAME_LC!!)
-+// Welcome (stripped by !!APP_NAME_LC!!)
+-// Welcome Onboarding
+-import './contrib/welcomeOnboarding/browser/welcomeOnboarding.contribution.js';
+-
++// Surveys (stripped by shuvscode)
++// Welcome (stripped by shuvscode)
++// Welcome Onboarding (stripped by shuvscode)
  // Call Hierarchy
  import './contrib/callHierarchy/browser/callHierarchy.contribution.js';
  

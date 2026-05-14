@@ -1,0 +1,187 @@
+:root {
+  --shuv-accent: #c4151b;
+  --shuv-accent-soft: rgba(196, 21, 27, .22);
+  --shuv-accent-line: rgba(255, 64, 64, .46);
+  --shuv-ink: #061927;
+  --shuv-ink-2: #09263a;
+  --shuv-panel-line: rgba(129, 176, 202, .16);
+  --shuv-button: #176277;
+  --shuv-button-hover: #23809a;
+  --shuv-button-shadow: rgba(35, 128, 154, .34);
+}
+
+/* Keep the old quiet sky/watermark mood, but give chrome a non-VSCode cut. */
+.monaco-workbench .part.titlebar {
+  border-bottom: 1px solid rgba(36, 160, 190, .28);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .025);
+}
+
+.monaco-workbench .part.titlebar > .titlebar-container > .titlebar-left > .window-appicon:not(.codicon) {
+  background-image: url('../../../../media/code-icon.svg');
+  background-size: 20px 20px;
+  filter: drop-shadow(0 0 5px rgba(196, 21, 27, .35));
+}
+
+.monaco-workbench .part.activitybar {
+  border-right: 1px solid var(--shuv-panel-line);
+}
+
+.monaco-workbench .activitybar .monaco-action-bar .action-item {
+  margin: 3px 0;
+}
+
+.monaco-workbench .activitybar .monaco-action-bar .action-label {
+  border-radius: 10px 3px 10px 3px;
+  transition: background-color .12s ease-out, color .12s ease-out, transform .12s ease-out, box-shadow .12s ease-out;
+}
+
+.monaco-workbench .activitybar .monaco-action-bar .action-label.codicon,
+.monaco-workbench .activitybar .accounts-container .action-label.codicon,
+.monaco-workbench .activitybar .global-activity .action-label.codicon {
+  align-items: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+}
+
+.monaco-workbench .activitybar .monaco-action-bar .action-label.codicon:before,
+.monaco-workbench .activitybar .accounts-container .action-label.codicon:before,
+.monaco-workbench .activitybar .global-activity .action-label.codicon:before {
+  display: block;
+  line-height: 1;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  transform: translateY(.5px);
+}
+
+.monaco-workbench .activitybar .accounts-container .action-label,
+.monaco-workbench .activitybar .global-activity .action-label {
+  border-radius: 3px 10px 3px 10px;
+}
+
+.monaco-workbench .activitybar .accounts-container .action-label:hover,
+.monaco-workbench .activitybar .global-activity .action-label:hover {
+  background: rgba(196, 21, 27, .10);
+  box-shadow: inset 0 0 0 1px rgba(196, 21, 27, .18);
+}
+
+.monaco-workbench .activitybar .monaco-action-bar .action-label:hover {
+  background: rgba(91, 138, 166, .14);
+}
+
+.monaco-workbench .activitybar .monaco-action-bar .checked .action-label,
+.monaco-workbench .activitybar .monaco-action-bar .action-item.checked .action-label {
+  background: linear-gradient(135deg, rgba(196, 21, 27, .16), rgba(95, 73, 150, .16));
+  box-shadow: inset 2px 0 0 var(--shuv-accent-line), 0 0 18px rgba(196, 21, 27, .12);
+}
+
+/* Product icons supplied by shuvscode Phosphor should feel rounder/heavier than codicons. */
+.monaco-workbench .codicon[class*='codicon-'] {
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+.monaco-workbench .activitybar .codicon[class*='codicon-'] {
+  font-size: 20px;
+}
+
+.monaco-workbench .activitybar.left > .content :not(.monaco-menu) > .monaco-action-bar .action-label.codicon {
+  width: var(--activity-bar-width, 48px) !important;
+  height: var(--activity-bar-action-height, 48px) !important;
+}
+
+.monaco-workbench .monaco-list-row .codicon[class*='codicon-'],
+.monaco-workbench .action-label.codicon[class*='codicon-'] {
+  opacity: .9;
+}
+
+/* Primary buttons: clipped switchboard key instead of stock rounded VSCode button. */
+.monaco-workbench .monaco-button,
+.monaco-workbench .monaco-button.default-color,
+.monaco-workbench .monaco-button.monaco-text-button {
+  border-radius: 0 !important;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  min-height: 31px;
+  padding-inline: 18px !important;
+  font-weight: 650;
+  letter-spacing: .015em;
+  background: linear-gradient(180deg, var(--shuv-button-hover), var(--shuv-button)) !important;
+  color: #f8f4ff !important;
+  border: 1px solid rgba(120, 205, 220, .22) !important;
+  box-shadow: 0 8px 18px -11px var(--shuv-button-shadow), inset 0 1px 0 rgba(255,255,255,.16);
+}
+
+.monaco-workbench .monaco-button:hover,
+.monaco-workbench .monaco-button.default-color:hover,
+.monaco-workbench .monaco-button.monaco-text-button:hover {
+  background: linear-gradient(180deg, #2a91ad, #1a6e84) !important;
+  box-shadow: 0 9px 22px -10px rgba(35, 128, 154, .55), inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.monaco-workbench .monaco-button:focus-visible {
+  outline: 1px solid var(--shuv-accent-line) !important;
+  outline-offset: 2px !important;
+}
+
+/* Tabs get a mild angled-cut form, not generic rounded pills. */
+.monaco-workbench .part.editor>.content .editor-group-container>.title.tabs .tab {
+  border-radius: 0 !important;
+  clip-path: polygon(9px 0, 100% 0, calc(100% - 7px) 100%, 0 100%);
+  margin-left: -2px;
+  border-right: 1px solid rgba(130, 170, 190, .10) !important;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title.tabs .tab.active {
+  box-shadow: inset 0 -2px 0 var(--shuv-accent-line), inset 9px 0 0 rgba(196, 21, 27, .08);
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title.tabs .tab.active .tab-label {
+  font-weight: 600;
+}
+
+.monaco-workbench .monaco-scrollable-element>.scrollbar>.slider {
+  border-radius: 999px;
+}
+
+/* Empty editor watermark: restore the strong brand moment from the earlier build. */
+.monaco-workbench .part.editor .editor-group-container.empty .letterpress {
+  opacity: .52;
+  filter: drop-shadow(0 0 22px rgba(89, 139, 166, .20));
+}
+
+/* Dialogs/quick input should read like an instrument panel instead of a card. */
+.monaco-workbench .quick-input-widget,
+.monaco-workbench .monaco-dialog-box,
+.monaco-workbench .monaco-hover {
+  border-radius: 0 !important;
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  border: 1px solid var(--shuv-panel-line) !important;
+}
+
+/* Keep the empty-editor devil phone watermark centered in the whole window, not
+   inside a restored/split editor group. */
+.monaco-workbench .part.editor > .content .editor-group-container > .editor-group-watermark {
+  position: fixed !important;
+  left: 50vw !important;
+  top: 50vh !important;
+  width: 272px !important;
+  height: 272px !important;
+  max-width: none !important;
+  margin: 0 !important;
+  transform: translate(-50%, -50%) !important;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.monaco-workbench .part.editor > .content .editor-group-container > .editor-group-watermark > .watermark-container {
+  width: 272px !important;
+  height: 272px !important;
+}
+
+.monaco-workbench .part.editor > .content .editor-group-container > .editor-group-watermark .letterpress {
+  max-width: 272px !important;
+  width: 272px !important;
+}

@@ -12,7 +12,12 @@ fi
 
 node_version="$(cat .nvmrc)"
 if command -v mise >/dev/null 2>&1; then
-  eval "$(mise env node@"$node_version")"
+  eval "$(mise activate bash --shims)"
+  eval "$(mise hook-env -s bash)" || true
+  mise_node_bin="$(mise where node@"$node_version" 2>/dev/null)/bin"
+  if [[ -d "$mise_node_bin" ]]; then
+    export PATH="$mise_node_bin:$PATH"
+  fi
 elif command -v nvm >/dev/null 2>&1; then
   nvm use "$node_version"
 elif [[ -s /usr/share/nvm/init-nvm.sh ]]; then

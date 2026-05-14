@@ -2,10 +2,7 @@ const vscode = require('vscode');
 
 const FLAG = 'shuvscode.bootstrapped';
 
-const EXTENSIONS = [
-  'sdras.night-owl',
-  'vscode-icons-team.vscode-icons'
-];
+const EXTENSIONS = [];
 
 async function activate(ctx) {
   const enabled = vscode.workspace

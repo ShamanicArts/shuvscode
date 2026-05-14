@@ -1,0 +1,43 @@
+diff --git a/src/vs/workbench/contrib/markers/browser/markers.contribution.ts b/src/vs/workbench/contrib/markers/browser/markers.contribution.ts
+index 43a883c5..55a8168e 100644
+--- a/src/vs/workbench/contrib/markers/browser/markers.contribution.ts
++++ b/src/vs/workbench/contrib/markers/browser/markers.contribution.ts
+@@ -580,10 +580,10 @@ class MarkersStatusBarContributions extends Disposable implements IWorkbenchCont
+ 		@IConfigurationService private readonly configurationService: IConfigurationService
+ 	) {
+ 		super();
+-		this.markersStatusItem = this._register(this.statusbarService.addEntry(this.getMarkersItem(), 'status.problems', StatusbarAlignment.LEFT, 50 /* Medium Priority */));
++		this.markersStatusItem = this._register(this.statusbarService.addEntry(this.getMarkersItem(), 'status.problems', StatusbarAlignment.RIGHT, 50 /* Medium Priority */));
+ 
+ 		const addStatusBarEntry = () => {
+-			this.markersStatusItemOff = this.statusbarService.addEntry(this.getMarkersItemTurnedOff(), 'status.problemsVisibility', StatusbarAlignment.LEFT, 49);
++			this.markersStatusItemOff = this.statusbarService.addEntry(this.getMarkersItemTurnedOff(), 'status.problemsVisibility', StatusbarAlignment.RIGHT, 49);
+ 		};
+ 
+ 		// Add the status bar entry if the problems is not visible
+diff --git a/src/vs/workbench/contrib/remote/browser/remoteExplorer.ts b/src/vs/workbench/contrib/remote/browser/remoteExplorer.ts
+index be867aa3..6cbe73f0 100644
+--- a/src/vs/workbench/contrib/remote/browser/remoteExplorer.ts
++++ b/src/vs/workbench/contrib/remote/browser/remoteExplorer.ts
+@@ -143,7 +143,7 @@ export class ForwardedPortsView extends Disposable implements IWorkbenchContribu
+ 		}
+ 
+ 		if (!this.entryAccessor) {
+-			this._register(this.entryAccessor = this.statusbarService.addEntry(this.entry, 'status.forwardedPorts', StatusbarAlignment.LEFT, 40));
++			this._register(this.entryAccessor = this.statusbarService.addEntry(this.entry, 'status.forwardedPorts', StatusbarAlignment.RIGHT, 40));
+ 		} else {
+ 			this.entryAccessor.update(this.entry);
+ 		}
+diff --git a/src/vs/workbench/contrib/remote/browser/remoteIndicator.ts b/src/vs/workbench/contrib/remote/browser/remoteIndicator.ts
+index 65d90cfd..90c07373 100644
+--- a/src/vs/workbench/contrib/remote/browser/remoteIndicator.ts
++++ b/src/vs/workbench/contrib/remote/browser/remoteIndicator.ts
+@@ -576,7 +576,7 @@ export class RemoteStatusIndicator extends Disposable implements IWorkbenchContr
+ 		if (this.remoteStatusEntry) {
+ 			this.remoteStatusEntry.update(properties);
+ 		} else {
+-			this.remoteStatusEntry = this.statusbarService.addEntry(properties, 'status.host', StatusbarAlignment.LEFT, Number.POSITIVE_INFINITY /* first entry */);
++			this.remoteStatusEntry = this.statusbarService.addEntry(properties, 'status.host', StatusbarAlignment.RIGHT, Number.POSITIVE_INFINITY /* rightmost entry */);
+ 		}
+ 	}
+ 

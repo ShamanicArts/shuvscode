@@ -1,0 +1,813 @@
+{
+	"fonts": [
+		{
+			"id": "phosphor",
+			"src": [
+				{
+					"path": "../fonts/Phosphor.woff2",
+					"format": "woff2"
+				}
+			],
+			"weight": "normal",
+			"style": "normal"
+		}
+	],
+	"iconDefinitions": {
+		"account": {
+			"fontCharacter": "\\e4c4",
+			"fontId": "phosphor"
+		},
+		"accounts-view-bar-icon": {
+			"fontCharacter": "\\e4c4",
+			"fontId": "phosphor"
+		},
+		"add": {
+			"fontCharacter": "\\e3d4",
+			"fontId": "phosphor"
+		},
+		"alert": {
+			"fontCharacter": "\\e4e0",
+			"fontId": "phosphor"
+		},
+		"arrow-down": {
+			"fontCharacter": "\\e04c",
+			"fontId": "phosphor"
+		},
+		"arrow-left": {
+			"fontCharacter": "\\e058",
+			"fontId": "phosphor"
+		},
+		"arrow-right": {
+			"fontCharacter": "\\e06c",
+			"fontId": "phosphor"
+		},
+		"arrow-up": {
+			"fontCharacter": "\\e078",
+			"fontId": "phosphor"
+		},
+		"beaker": {
+			"fontCharacter": "\\e79e",
+			"fontId": "phosphor"
+		},
+		"bell": {
+			"fontCharacter": "\\e0ce",
+			"fontId": "phosphor"
+		},
+		"book": {
+			"fontCharacter": "\\e0e2",
+			"fontId": "phosphor"
+		},
+		"bookmark": {
+			"fontCharacter": "\\e0ec",
+			"fontId": "phosphor"
+		},
+		"bracket": {
+			"fontCharacter": "\\e860",
+			"fontId": "phosphor"
+		},
+		"bracket-dot": {
+			"fontCharacter": "\\e860",
+			"fontId": "phosphor"
+		},
+		"branch": {
+			"fontCharacter": "\\e278",
+			"fontId": "phosphor"
+		},
+		"bug": {
+			"fontCharacter": "\\e5f4",
+			"fontId": "phosphor"
+		},
+		"check": {
+			"fontCharacter": "\\e182",
+			"fontId": "phosphor"
+		},
+		"chevron-down": {
+			"fontCharacter": "\\e136",
+			"fontId": "phosphor"
+		},
+		"chevron-left": {
+			"fontCharacter": "\\e132",
+			"fontId": "phosphor"
+		},
+		"chevron-right": {
+			"fontCharacter": "\\e13a",
+			"fontId": "phosphor"
+		},
+		"chevron-up": {
+			"fontCharacter": "\\e13e",
+			"fontId": "phosphor"
+		},
+		"chrome-close": {
+			"fontCharacter": "\\e4f6",
+			"fontId": "phosphor"
+		},
+		"chrome-maximize": {
+			"fontCharacter": "\\e46a",
+			"fontId": "phosphor"
+		},
+		"chrome-minimize": {
+			"fontCharacter": "\\e4e6",
+			"fontId": "phosphor"
+		},
+		"chrome-restore": {
+			"fontCharacter": "\\e872",
+			"fontId": "phosphor"
+		},
+		"circle-filled": {
+			"fontCharacter": "\\e3d4",
+			"fontId": "phosphor"
+		},
+		"clock": {
+			"fontCharacter": "\\e2a6",
+			"fontId": "phosphor"
+		},
+		"close": {
+			"fontCharacter": "\\e4f6",
+			"fontId": "phosphor"
+		},
+		"close-dirty": {
+			"fontCharacter": "\\e3d4",
+			"fontId": "phosphor"
+		},
+		"cloud": {
+			"fontCharacter": "\\e1aa",
+			"fontId": "phosphor"
+		},
+		"code": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"codicon-file": {
+			"fontCharacter": "\\e230",
+			"fontId": "phosphor"
+		},
+		"codicon-folder": {
+			"fontCharacter": "\\e24a",
+			"fontId": "phosphor"
+		},
+		"comment": {
+			"fontCharacter": "\\e1a4",
+			"fontId": "phosphor"
+		},
+		"comment-add": {
+			"fontCharacter": "\\e1a6",
+			"fontId": "phosphor"
+		},
+		"console": {
+			"fontCharacter": "\\e47e",
+			"fontId": "phosphor"
+		},
+		"debug": {
+			"fontCharacter": "\\e5f4",
+			"fontId": "phosphor"
+		},
+		"debug-alt": {
+			"fontCharacter": "\\e5f4",
+			"fontId": "phosphor"
+		},
+		"debug-pause": {
+			"fontCharacter": "\\e334",
+			"fontId": "phosphor"
+		},
+		"debug-restart": {
+			"fontCharacter": "\\e094",
+			"fontId": "phosphor"
+		},
+		"debug-start": {
+			"fontCharacter": "\\e3d0",
+			"fontId": "phosphor"
+		},
+		"debug-step-into": {
+			"fontCharacter": "\\e136",
+			"fontId": "phosphor"
+		},
+		"debug-step-out": {
+			"fontCharacter": "\\e13a",
+			"fontId": "phosphor"
+		},
+		"debug-step-over": {
+			"fontCharacter": "\\e3d8",
+			"fontId": "phosphor"
+		},
+		"debug-stop": {
+			"fontCharacter": "\\e4f6",
+			"fontId": "phosphor"
+		},
+		"device-desktop": {
+			"fontCharacter": "\\e1dc",
+			"fontId": "phosphor"
+		},
+		"device-mobile": {
+			"fontCharacter": "\\e1e0",
+			"fontId": "phosphor"
+		},
+		"discard": {
+			"fontCharacter": "\\e4a6",
+			"fontId": "phosphor"
+		},
+		"edit": {
+			"fontCharacter": "\\e3e8",
+			"fontId": "phosphor"
+		},
+		"ellipsis": {
+			"fontCharacter": "\\e31e",
+			"fontId": "phosphor"
+		},
+		"error": {
+			"fontCharacter": "\\e4f6",
+			"fontId": "phosphor"
+		},
+		"explorer-view-icon": {
+			"fontCharacter": "\\e710",
+			"fontId": "phosphor"
+		},
+		"extensions": {
+			"fontCharacter": "\\e596",
+			"fontId": "phosphor"
+		},
+		"extensions-view-icon": {
+			"fontCharacter": "\\e596",
+			"fontId": "phosphor"
+		},
+		"eye": {
+			"fontCharacter": "\\e21e",
+			"fontId": "phosphor"
+		},
+		"eye-closed": {
+			"fontCharacter": "\\e220",
+			"fontId": "phosphor"
+		},
+		"file": {
+			"fontCharacter": "\\e230",
+			"fontId": "phosphor"
+		},
+		"file-add": {
+			"fontCharacter": "\\e236",
+			"fontId": "phosphor"
+		},
+		"file-directory": {
+			"fontCharacter": "\\e24a",
+			"fontId": "phosphor"
+		},
+		"file-directory-create": {
+			"fontCharacter": "\\e25e",
+			"fontId": "phosphor"
+		},
+		"files": {
+			"fontCharacter": "\\e710",
+			"fontId": "phosphor"
+		},
+		"fold": {
+			"fontCharacter": "\\e136",
+			"fontId": "phosphor"
+		},
+		"folder": {
+			"fontCharacter": "\\e24a",
+			"fontId": "phosphor"
+		},
+		"folder-opened": {
+			"fontCharacter": "\\e256",
+			"fontId": "phosphor"
+		},
+		"gear": {
+			"fontCharacter": "\\e434",
+			"fontId": "phosphor"
+		},
+		"gist-fork": {
+			"fontCharacter": "\\e27e",
+			"fontId": "phosphor"
+		},
+		"gist-new": {
+			"fontCharacter": "\\e230",
+			"fontId": "phosphor"
+		},
+		"git-branch": {
+			"fontCharacter": "\\e278",
+			"fontId": "phosphor"
+		},
+		"git-merge": {
+			"fontCharacter": "\\e280",
+			"fontId": "phosphor"
+		},
+		"git-pull-request": {
+			"fontCharacter": "\\e280",
+			"fontId": "phosphor"
+		},
+		"git-pull-request-abandoned": {
+			"fontCharacter": "\\e280",
+			"fontId": "phosphor"
+		},
+		"github": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"globe": {
+			"fontCharacter": "\\e288",
+			"fontId": "phosphor"
+		},
+		"history": {
+			"fontCharacter": "\\e2a6",
+			"fontId": "phosphor"
+		},
+		"home": {
+			"fontCharacter": "\\e2a4",
+			"fontId": "phosphor"
+		},
+		"info": {
+			"fontCharacter": "\\e2ce",
+			"fontId": "phosphor"
+		},
+		"issue-opened": {
+			"fontCharacter": "\\e2ce",
+			"fontId": "phosphor"
+		},
+		"json": {
+			"fontCharacter": "\\e860",
+			"fontId": "phosphor"
+		},
+		"kebab-horizontal": {
+			"fontCharacter": "\\e31e",
+			"fontId": "phosphor"
+		},
+		"keyboard": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"layout": {
+			"fontCharacter": "\\e464",
+			"fontId": "phosphor"
+		},
+		"layout-panel": {
+			"fontCharacter": "\\e872",
+			"fontId": "phosphor"
+		},
+		"layout-sidebar-left": {
+			"fontCharacter": "\\eab6",
+			"fontId": "phosphor"
+		},
+		"layout-sidebar-right": {
+			"fontCharacter": "\\eab6",
+			"fontId": "phosphor"
+		},
+		"light-bulb": {
+			"fontCharacter": "\\e2aa",
+			"fontId": "phosphor"
+		},
+		"lightbulb": {
+			"fontCharacter": "\\e2aa",
+			"fontId": "phosphor"
+		},
+		"list-ordered": {
+			"fontCharacter": "\\e2f0",
+			"fontId": "phosphor"
+		},
+		"list-unordered": {
+			"fontCharacter": "\\e2f2",
+			"fontId": "phosphor"
+		},
+		"lock": {
+			"fontCharacter": "\\e2fe",
+			"fontId": "phosphor"
+		},
+		"logo-github": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"mail-reply": {
+			"fontCharacter": "\\e3f4",
+			"fontId": "phosphor"
+		},
+		"manage": {
+			"fontCharacter": "\\e434",
+			"fontId": "phosphor"
+		},
+		"mark-github": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"menu": {
+			"fontCharacter": "\\e3b2",
+			"fontId": "phosphor"
+		},
+		"microscope": {
+			"fontCharacter": "\\e79e",
+			"fontId": "phosphor"
+		},
+		"more": {
+			"fontCharacter": "\\e31e",
+			"fontId": "phosphor"
+		},
+		"new-file": {
+			"fontCharacter": "\\e236",
+			"fontId": "phosphor"
+		},
+		"new-folder": {
+			"fontCharacter": "\\e25e",
+			"fontId": "phosphor"
+		},
+		"notifications": {
+			"fontCharacter": "\\e0ce",
+			"fontId": "phosphor"
+		},
+		"organization": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"organization-filled": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"organization-outline": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"package": {
+			"fontCharacter": "\\e390",
+			"fontId": "phosphor"
+		},
+		"pass": {
+			"fontCharacter": "\\e182",
+			"fontId": "phosphor"
+		},
+		"pencil": {
+			"fontCharacter": "\\e3e8",
+			"fontId": "phosphor"
+		},
+		"person": {
+			"fontCharacter": "\\e4c4",
+			"fontId": "phosphor"
+		},
+		"person-filled": {
+			"fontCharacter": "\\e4c4",
+			"fontId": "phosphor"
+		},
+		"person-follow": {
+			"fontCharacter": "\\e4c4",
+			"fontId": "phosphor"
+		},
+		"person-outline": {
+			"fontCharacter": "\\e4c4",
+			"fontId": "phosphor"
+		},
+		"play": {
+			"fontCharacter": "\\e3d0",
+			"fontId": "phosphor"
+		},
+		"plus": {
+			"fontCharacter": "\\e3d4",
+			"fontId": "phosphor"
+		},
+		"primitive-dot": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"primitive-square": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"record-keys": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"references": {
+			"fontCharacter": "\\e0e2",
+			"fontId": "phosphor"
+		},
+		"refresh": {
+			"fontCharacter": "\\e094",
+			"fontId": "phosphor"
+		},
+		"remote": {
+			"fontCharacter": "\\e946",
+			"fontId": "phosphor"
+		},
+		"remote-explorer-view-icon": {
+			"fontCharacter": "\\e946",
+			"fontId": "phosphor"
+		},
+		"remove-close": {
+			"fontCharacter": "\\e4f6",
+			"fontId": "phosphor"
+		},
+		"repl": {
+			"fontCharacter": "\\e47e",
+			"fontId": "phosphor"
+		},
+		"reply": {
+			"fontCharacter": "\\e3f4",
+			"fontId": "phosphor"
+		},
+		"repo": {
+			"fontCharacter": "\\e24a",
+			"fontId": "phosphor"
+		},
+		"repo-create": {
+			"fontCharacter": "\\e24a",
+			"fontId": "phosphor"
+		},
+		"repo-delete": {
+			"fontCharacter": "\\e4a6",
+			"fontId": "phosphor"
+		},
+		"repo-forked": {
+			"fontCharacter": "\\e27e",
+			"fontId": "phosphor"
+		},
+		"repo-sync": {
+			"fontCharacter": "\\e094",
+			"fontId": "phosphor"
+		},
+		"rocket": {
+			"fontCharacter": "\\e3fc",
+			"fontId": "phosphor"
+		},
+		"run-view-icon": {
+			"fontCharacter": "\\e5f4",
+			"fontId": "phosphor"
+		},
+		"save": {
+			"fontCharacter": "\\e46c",
+			"fontId": "phosphor"
+		},
+		"scm-view-icon": {
+			"fontCharacter": "\\e278",
+			"fontId": "phosphor"
+		},
+		"search": {
+			"fontCharacter": "\\e30c",
+			"fontId": "phosphor"
+		},
+		"search-save": {
+			"fontCharacter": "\\e30c",
+			"fontId": "phosphor"
+		},
+		"search-view-icon": {
+			"fontCharacter": "\\e30c",
+			"fontId": "phosphor"
+		},
+		"server": {
+			"fontCharacter": "\\e1e0",
+			"fontId": "phosphor"
+		},
+		"settings": {
+			"fontCharacter": "\\e434",
+			"fontId": "phosphor"
+		},
+		"settings-gear": {
+			"fontCharacter": "\\e434",
+			"fontId": "phosphor"
+		},
+		"source-control": {
+			"fontCharacter": "\\e278",
+			"fontId": "phosphor"
+		},
+		"split-horizontal": {
+			"fontCharacter": "\\e870",
+			"fontId": "phosphor"
+		},
+		"split-vertical": {
+			"fontCharacter": "\\e874",
+			"fontId": "phosphor"
+		},
+		"star": {
+			"fontCharacter": "\\e46e",
+			"fontId": "phosphor"
+		},
+		"star-add": {
+			"fontCharacter": "\\e46e",
+			"fontId": "phosphor"
+		},
+		"star-delete": {
+			"fontCharacter": "\\e46e",
+			"fontId": "phosphor"
+		},
+		"star-empty": {
+			"fontCharacter": "\\e46e",
+			"fontId": "phosphor"
+		},
+		"star-full": {
+			"fontCharacter": "\\e46e",
+			"fontId": "phosphor"
+		},
+		"stop": {
+			"fontCharacter": "\\e4f6",
+			"fontId": "phosphor"
+		},
+		"symbol-array": {
+			"fontCharacter": "\\e860",
+			"fontId": "phosphor"
+		},
+		"symbol-boolean": {
+			"fontCharacter": "\\e182",
+			"fontId": "phosphor"
+		},
+		"symbol-class": {
+			"fontCharacter": "\\e390",
+			"fontId": "phosphor"
+		},
+		"symbol-color": {
+			"fontCharacter": "\\e39a",
+			"fontId": "phosphor"
+		},
+		"symbol-constant": {
+			"fontCharacter": "\\e182",
+			"fontId": "phosphor"
+		},
+		"symbol-constructor": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"symbol-enum": {
+			"fontCharacter": "\\e860",
+			"fontId": "phosphor"
+		},
+		"symbol-enum-member": {
+			"fontCharacter": "\\e860",
+			"fontId": "phosphor"
+		},
+		"symbol-event": {
+			"fontCharacter": "\\e4e0",
+			"fontId": "phosphor"
+		},
+		"symbol-field": {
+			"fontCharacter": "\\e270",
+			"fontId": "phosphor"
+		},
+		"symbol-file": {
+			"fontCharacter": "\\e230",
+			"fontId": "phosphor"
+		},
+		"symbol-folder": {
+			"fontCharacter": "\\e24a",
+			"fontId": "phosphor"
+		},
+		"symbol-function": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"symbol-interface": {
+			"fontCharacter": "\\e860",
+			"fontId": "phosphor"
+		},
+		"symbol-key": {
+			"fontCharacter": "\\e0e2",
+			"fontId": "phosphor"
+		},
+		"symbol-keyword": {
+			"fontCharacter": "\\e0e2",
+			"fontId": "phosphor"
+		},
+		"symbol-method": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"symbol-module": {
+			"fontCharacter": "\\e390",
+			"fontId": "phosphor"
+		},
+		"symbol-namespace": {
+			"fontCharacter": "\\e390",
+			"fontId": "phosphor"
+		},
+		"symbol-null": {
+			"fontCharacter": "\\e182",
+			"fontId": "phosphor"
+		},
+		"symbol-number": {
+			"fontCharacter": "\\e182",
+			"fontId": "phosphor"
+		},
+		"symbol-numeric": {
+			"fontCharacter": "\\e182",
+			"fontId": "phosphor"
+		},
+		"symbol-object": {
+			"fontCharacter": "\\e466",
+			"fontId": "phosphor"
+		},
+		"symbol-operator": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"symbol-package": {
+			"fontCharacter": "\\e390",
+			"fontId": "phosphor"
+		},
+		"symbol-property": {
+			"fontCharacter": "\\e270",
+			"fontId": "phosphor"
+		},
+		"symbol-snippet": {
+			"fontCharacter": "\\e1bc",
+			"fontId": "phosphor"
+		},
+		"symbol-string": {
+			"fontCharacter": "\\e0e2",
+			"fontId": "phosphor"
+		},
+		"symbol-struct": {
+			"fontCharacter": "\\e860",
+			"fontId": "phosphor"
+		},
+		"symbol-structure": {
+			"fontCharacter": "\\e860",
+			"fontId": "phosphor"
+		},
+		"symbol-text": {
+			"fontCharacter": "\\e0e2",
+			"fontId": "phosphor"
+		},
+		"symbol-variable": {
+			"fontCharacter": "\\e434",
+			"fontId": "phosphor"
+		},
+		"sync": {
+			"fontCharacter": "\\e094",
+			"fontId": "phosphor"
+		},
+		"tag": {
+			"fontCharacter": "\\e0ec",
+			"fontId": "phosphor"
+		},
+		"tag-add": {
+			"fontCharacter": "\\e0ec",
+			"fontId": "phosphor"
+		},
+		"tag-remove": {
+			"fontCharacter": "\\e0ec",
+			"fontId": "phosphor"
+		},
+		"terminal": {
+			"fontCharacter": "\\e47e",
+			"fontId": "phosphor"
+		},
+		"terminal-view-icon": {
+			"fontCharacter": "\\e47e",
+			"fontId": "phosphor"
+		},
+		"testing-view-icon": {
+			"fontCharacter": "\\e79e",
+			"fontId": "phosphor"
+		},
+		"tools": {
+			"fontCharacter": "\\e5d4",
+			"fontId": "phosphor"
+		},
+		"trash": {
+			"fontCharacter": "\\e4a6",
+			"fontId": "phosphor"
+		},
+		"trashcan": {
+			"fontCharacter": "\\e4a6",
+			"fontId": "phosphor"
+		},
+		"tree-filter-on-type-on": {
+			"fontCharacter": "\\e30c",
+			"fontId": "phosphor"
+		},
+		"tree-item-expanded": {
+			"fontCharacter": "\\e136",
+			"fontId": "phosphor"
+		},
+		"unfold": {
+			"fontCharacter": "\\e13a",
+			"fontId": "phosphor"
+		},
+		"unlock": {
+			"fontCharacter": "\\e4b8",
+			"fontId": "phosphor"
+		},
+		"vm": {
+			"fontCharacter": "\\e1e0",
+			"fontId": "phosphor"
+		},
+		"warning": {
+			"fontCharacter": "\\e4e0",
+			"fontId": "phosphor"
+		},
+		"wrench": {
+			"fontCharacter": "\\e5d4",
+			"fontId": "phosphor"
+		},
+		"x": {
+			"fontCharacter": "\\e4f6",
+			"fontId": "phosphor"
+		},
+		"zap": {
+			"fontCharacter": "\\e3fc",
+			"fontId": "phosphor"
+		},
+		"remote-explorer": {
+			"fontCharacter": "\\e946",
+			"fontId": "phosphor"
+		},
+		"remote-window": {
+			"fontCharacter": "\\e946",
+			"fontId": "phosphor"
+		},
+		"statusbar-remote": {
+			"fontCharacter": "\\e946",
+			"fontId": "phosphor"
+		}
+	}
+}

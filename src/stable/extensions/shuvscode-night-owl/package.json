@@ -1,0 +1,26 @@
+{
+  "name": "shuvscode-night-owl",
+  "displayName": "shuvscode Night Owl",
+  "description": "Bundled Night Owl theme files for shuvscode so first-run does not install a third-party theme extension.",
+  "version": "2.1.1-shuv1",
+  "publisher": "shuvscode",
+  "license": "MIT",
+  "engines": {
+    "vscode": "*"
+  },
+  "categories": ["Themes"],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Night Owl",
+        "uiTheme": "vs-dark",
+        "path": "./themes/night-owl-color-theme.json"
+      },
+      {
+        "label": "Night Owl (No Italics)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/night-owl-color-theme-noitalic.json"
+      }
+    ]
+  }
+}

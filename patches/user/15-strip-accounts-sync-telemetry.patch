@@ -1,90 +1,82 @@
 diff --git i/src/vs/workbench/workbench.common.main.ts w/src/vs/workbench/workbench.common.main.ts
 --- i/src/vs/workbench/workbench.common.main.ts
 +++ w/src/vs/workbench/workbench.common.main.ts
-@@ -186,22 +186,18 @@
-
+@@ -193,22 +193,17 @@
+ 
  //#region --- workbench contributions
-
+ 
 -// Default Account
 -import './services/accounts/browser/defaultAccount.js';
 -
+-// Account Policy Gate
++// Default Account (stripped by shuvscode)
++// Account Policy Gate (kept)
+ import './services/policies/browser/accountPolicyGate.contribution.js';
+-
 -// Telemetry
 -import './contrib/telemetry/browser/telemetry.contribution.js';
-+// Default Account (stripped by !!APP_NAME_LC!!)
-+// Telemetry (stripped by !!APP_NAME_LC!!)
-
++// Telemetry (stripped by shuvscode)
+ 
  // Preferences
  import './contrib/preferences/browser/preferences.contribution.js';
  import './contrib/preferences/browser/keybindingsEditorContribution.js';
  import './contrib/preferences/browser/preferencesSearch.js';
-
+ 
 -// Performance
 -import './contrib/performance/browser/performance.contribution.js';
-+// Performance telemetry UI (stripped by !!APP_NAME_LC!!)
-
++// Performance telemetry UI (stripped by shuvscode)
+ 
  // Notebook
  import './contrib/notebook/browser/notebook.contribution.js';
-
- // Speech
- import './contrib/speech/browser/speech.contribution.js';
-@@ -365,17 +361,13 @@
+@@ -384,17 +379,13 @@
  // Language Status
  import './contrib/languageStatus/browser/languageStatus.contribution.js';
-
+ 
 -// Authentication
 -import './contrib/authentication/browser/authentication.contribution.js';
 -
 -// User Data Sync
 -import './contrib/userDataSync/browser/userDataSync.contribution.js';
-+// Authentication (stripped by !!APP_NAME_LC!!)
-+// User Data Sync (stripped by !!APP_NAME_LC!!)
-
++// Authentication (stripped by shuvscode)
++// User Data Sync (stripped by shuvscode)
+ 
  // User Data Profiles
  import './contrib/userDataProfile/browser/userDataProfile.contribution.js';
-
+ 
 -// Continue Edit Session
 -import './contrib/editSessions/browser/editSessions.contribution.js';
-+// Continue Edit Session (stripped by !!APP_NAME_LC!!)
-
- // Remote Coding Agents (stripped by !!APP_NAME_LC!!)
-
-@@ -401,31 +393,27 @@
++// Continue Edit Session (stripped by shuvscode)
+ 
+ // Remote Coding Agents (stripped by shuvscode)
+ 
+@@ -417,17 +408,14 @@
  // List
  import './contrib/list/browser/list.contribution.js';
-
+ 
 -// Accessibility Signals
--import './contrib/accessibilitySignals/browser/accessibilitySignal.contribution.js';
++// Accessibility Signals service core
+ import './contrib/accessibilitySignals/browser/accessibilitySignal.contribution.js';
 -
 -// Bracket Pair Colorizer 2 Telemetry
 -import './contrib/bracketPairColorizer2Telemetry/browser/bracketPairColorizer2Telemetry.contribution.js';
-+// Accessibility Signals service core
-+import './contrib/accessibilitySignals/browser/accessibilitySignal.contribution.js';
-+// Bracket Pair Colorizer 2 Telemetry (stripped by !!APP_NAME_LC!!)
-
++// Bracket Pair Colorizer 2 Telemetry (stripped by shuvscode)
+ 
  // Accessibility
  import './contrib/accessibility/browser/accessibility.contribution.js';
-
+ 
 -// Metered Connection
 -import './contrib/meteredConnection/browser/meteredConnection.contribution.js';
--
--// Share
--import './contrib/share/browser/share.contribution.js';
-+// Metered Connection (stripped by !!APP_NAME_LC!!)
-+
-+// Share
-+import './contrib/share/browser/share.contribution.js';
-
- // Synchronized Scrolling
- import './contrib/scrollLocking/browser/scrollLocking.contribution.js';
-
- // Inline Completions (stripped by !!APP_NAME_LC!!)
-
++// Metered Connection (stripped by shuvscode)
+ 
+ // Share
+ import './contrib/share/browser/share.contribution.js';
+@@ -440,8 +428,7 @@
  // Drop or paste into
  import './contrib/dropOrPasteInto/browser/dropOrPasteInto.contribution.js';
-
+ 
 -// Edit Telemetry
 -import './contrib/editTelemetry/browser/editTelemetry.contribution.js';
-+// Edit Telemetry (stripped by !!APP_NAME_LC!!)
-
++// Edit Telemetry (stripped by shuvscode)
+ 
  // Opener
  import './contrib/opener/browser/opener.contribution.js';

@@ -2,7 +2,7 @@
   "name": "shuvscode-defaults",
   "displayName": "shuvscode Defaults",
   "description": "Opinionated default settings for shuvscode.",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "publisher": "shuvscode",
   "engines": {
     "vscode": "*"
@@ -17,19 +17,19 @@
       "workbench.welcomePage.walkthroughs.openOnInstall": false,
       "workbench.commandPalette.experimental.suggestCommands": false,
       "workbench.colorTheme": "Night Owl",
-
       "extensions.ignoreRecommendations": true,
       "workbench.settings.enableNaturalLanguageSearch": false,
       "chat.disableAIFeatures": true,
       "git.autofetch": false,
-
       "window.commandCenter": false,
       "workbench.layoutControl.enabled": false,
-
       "breadcrumbs.enabled": false,
       "editor.minimap.enabled": false,
       "editor.stickyScroll.enabled": false,
-      "editor.inlayHints.enabled": "off"
+      "editor.inlayHints.enabled": "off",
+      "workbench.productIconTheme": "shuvscode-phosphor",
+      "workbench.iconTheme": "seti",
+      "workbench.notifications.position": "bottom-left"
     }
   }
 }

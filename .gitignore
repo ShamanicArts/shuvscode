@@ -31,3 +31,6 @@ stores/snapcraft/stable/*.snap
 font-size/node_modules/
 font-size/generate-css.js
 patch_check_results.json
+
+# Local release artifacts (regenerated; uploaded to GitHub Releases instead)
+dist/

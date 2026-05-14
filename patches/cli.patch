@@ -83,7 +83,7 @@ index 55f1dad..3b7ef5c 100644
  use crate::{
 -	constants::VSCODE_CLI_UPDATE_ENDPOINT,
 +	constants::{VSCODE_CLI_APP_NAME, VSCODE_CLI_DOWNLOAD_ENDPOINT, VSCODE_CLI_UPDATE_ENDPOINT},
- 	debug, log, options, spanf,
+ 	log, options,
 @@ -18,3 +18,3 @@ use crate::{
  		zipper,
 -	},
@@ -102,8 +102,8 @@ index 55f1dad..3b7ef5c 100644
  fn get_update_endpoint() -> Result<String, CodeError> {
 @@ -66,3 +74,3 @@ fn get_update_endpoint() -> Result<String, CodeError> {
  		.map(|s| s.to_string())
--		.ok_or_else(|| CodeError::UpdatesNotConfigured("no service url"))
-+		.ok_or_else(|| CodeError::UpdatesNotConfigured("no update url"))
+-		.ok_or(CodeError::UpdatesNotConfigured("no service url"))
++		.ok_or(CodeError::UpdatesNotConfigured("no update url"))
  }
 @@ -74,3 +82,4 @@ impl UpdateService {
  
@@ -134,7 +134,7 @@ index 55f1dad..3b7ef5c 100644
 -		debug!(self.log, "Resolved version {} to {}", version, res.version);
 +		debug!(self.log, "Resolved quality {} to {}", quality, res.version);
  
-@@ -115,40 +120,17 @@ impl UpdateService {
+@@ -115,36 +120,17 @@ impl UpdateService {
  
 -	/// Gets the latest commit for the target of the given quality.
 -	pub async fn get_latest_commit(
@@ -165,11 +165,7 @@ index 55f1dad..3b7ef5c 100644
 +			release.name,
  		);
  
--		let mut response = spanf!(
--			self.log,
--			self.log.span("server.version.resolve"),
--			self.client.make_request("GET", download_url)
--		)?;
+-		let mut response = self.client.make_request("GET", download_url).await?;
 -
 -		if !response.status_code.is_success() {
 -			return Err(response.into_err().await.into());
@@ -309,5 +305,18 @@ index 2f71999..e689f62 100644
 @@ -37,3 +37,3 @@ if (process.env.VSCODE_FORWARDING_IS_DEV) {
  
 -	const cliName = vscode.env.appQuality === 'stable' ? 'code-tunnel' : 'code-tunnel-insiders';
-+	const cliName = '!!TUNNEL_APP_NAME!!';
++	const cliName = 'shuvscode-tunnel';
  	const extension = process.platform === 'win32' ? '.exe' : '';
+diff --git a/cli/src/tunnels/agent_host.rs b/cli/src/tunnels/agent_host.rs
+index 2d50c926..11a349cb 100644
+--- a/cli/src/tunnels/agent_host.rs
++++ b/cli/src/tunnels/agent_host.rs
+@@ -164,7 +164,7 @@ impl AgentHostManager {
+ 			server_dir
+ 				.join(SERVER_FOLDER_NAME)
+ 				.join("bin")
+-				.join(release.quality.server_entrypoint())
++				.join(release.quality.server_entrypoint().unwrap())
+ 		};
+ 
+ 		let agent_host_socket = get_socket_name();
