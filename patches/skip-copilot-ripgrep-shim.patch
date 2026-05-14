@@ -1,0 +1,15 @@
+# shuvscode: skip Copilot ripgrep shim when Copilot SDK is absent (it's stripped from shuvscode builds).
+diff --git a/build/lib/copilot.ts b/build/lib/copilot.ts
+index fec1c3d0..bbdabe00 100644
+--- a/build/lib/copilot.ts
++++ b/build/lib/copilot.ts
+@@ -87,7 +87,8 @@ export function prepareBuiltInCopilotRipgrepShim(platform: string, arch: string,
+ 	const copilotBase = path.join(extensionNodeModules, '@github', 'copilot');
+ 	const copilotSdkBase = path.join(copilotBase, 'sdk');
+ 	if (!fs.existsSync(copilotSdkBase)) {
+-		throw new Error(`[prepareBuiltInCopilotRipgrepShim] Copilot SDK directory not found at ${copilotSdkBase}`);
++		// shuvscode: Copilot extension is stripped, skip ripgrep shim.
++		return;
+ 	}
+ 
+ 	const ripgrepSource = path.join(appNodeModulesDir, '@vscode', 'ripgrep', 'bin');
