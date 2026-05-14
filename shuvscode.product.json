@@ -27,12 +27,7 @@
     "extensions.autoUpdate": false,
     "update.showReleaseNotes": false,
     "workbench.enableExperiments": false,
-    "telemetry.telemetryLevel": "off",
-    "window.titleBarStyle": "custom",
-    "window.menuBarVisibility": "hidden",
-    "window.customTitleBarVisibility": "auto",
-    "workbench.activityBar.location": "top",
-    "workbench.panel.defaultLocation": "right"
+    "telemetry.telemetryLevel": "off"
   },
 
   "extensionTips": {},
