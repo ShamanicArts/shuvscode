@@ -110,6 +110,34 @@
   background: var(--canvas-accent-soft);
 }
 
+/* Activity bar avatar tile */
+.monaco-workbench.shuvscode-canvas .part.activitybar .shuvscode-activitybar-avatar {
+	width: 36px;
+	height: 36px;
+	margin: 8px auto 12px;
+	border-radius: 50%;
+	background: var(--canvas-accent-soft);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: background-color .12s ease-out;
+}
+
+.monaco-workbench.shuvscode-canvas .part.activitybar .shuvscode-activitybar-avatar:hover {
+	background: var(--canvas-accent);
+}
+
+.monaco-workbench.shuvscode-canvas .part.activitybar .shuvscode-activitybar-avatar .codicon {
+	font-size: 20px;
+	color: var(--canvas-accent);
+	transition: color .12s ease-out;
+}
+
+.monaco-workbench.shuvscode-canvas .part.activitybar .shuvscode-activitybar-avatar:hover .codicon {
+	color: var(--canvas-accent-fg);
+}
+
 /* Status bar: full-width with top gap */
 .monaco-workbench.shuvscode-canvas .part.statusbar {
   background: var(--canvas-surface);

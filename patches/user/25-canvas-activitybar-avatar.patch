@@ -1,0 +1,18 @@
+Inject an avatar tile at the top of the activity bar.
+
+diff --git a/src/vs/workbench/browser/parts/activitybar/activitybarPart.ts b/src/vs/workbench/browser/parts/activitybar/activitybarPart.ts
+--- a/src/vs/workbench/browser/parts/activitybar/activitybarPart.ts
++++ b/src/vs/workbench/browser/parts/activitybar/activitybarPart.ts
+@@ -165,6 +165,12 @@ export class ActivitybarPart extends Part {
+ 		this.element = parent;
+ 		this.content = append(this.element, $('.content'));
+ 
++		// shuvscode: inject avatar tile at top of activity bar
++		const avatarEl = append(this.element, $('div.shuvscode-activitybar-avatar'));
++		avatarEl.setAttribute('role', 'button');
++		avatarEl.setAttribute('aria-label', 'Account');
++		append(avatarEl, $('span.codicon.codicon-account'));
++
+ 		// Apply font settings before show() so composite bar uses correct sizes
+ 		this.applyActivityBarFontFamily(parent);
+ 		this.applyActivityBarFontSize(parent);
