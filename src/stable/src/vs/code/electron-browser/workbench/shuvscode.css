@@ -1,0 +1,284 @@
+/*
+ * shuvscode custom CSS overlay
+ *
+ * This stylesheet is injected into workbench.html by patch 20.
+ * It tunes typography, surface treatment, and chrome to give shuvscode
+ * a distinct identity on top of the Ember theme.
+ *
+ * Guidelines:
+ * - Prefer CSS variables defined by the theme; do not hard-code semantic colors
+ *   unless the theme variable is missing.
+ * - Keep selectors specific to known classes so future workbench refactors fail
+ *   loudly rather than silently breaking layout.
+ * - Animations should be subtle (180-260ms, ease-out).
+ */
+
+:root {
+	--shuv-radius-sm: 6px;
+	--shuv-radius-md: 10px;
+	--shuv-radius-lg: 14px;
+	--shuv-accent: #c4151b;
+	--shuv-accent-hot: #ff3b3b;
+	--shuv-accent-glow: rgba(196, 21, 27, 0.45);
+	--shuv-bg-deep: #08080a;
+	--shuv-bg-panel: #0c0c10;
+	--shuv-bg-elevated: #131319;
+	--shuv-border-soft: #1a1a22;
+	--shuv-ui-font: 'Inter', 'Inter Tight', 'IBM Plex Sans', 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* ---------- Global font polish ---------- */
+.monaco-workbench {
+	font-family: var(--shuv-ui-font);
+	letter-spacing: 0.01em;
+}
+
+.monaco-workbench .monaco-editor,
+.monaco-workbench .xterm,
+.monaco-workbench .terminal-wrapper {
+	font-feature-settings: "calt" 1, "liga" 1, "ss01" 1;
+}
+
+/* ---------- Title bar: shuvscode brand ---------- */
+.monaco-workbench .part.titlebar {
+	height: 36px;
+	background: var(--shuv-bg-deep);
+	border-bottom: 1px solid var(--shuv-border-soft);
+	font-size: 12px;
+	letter-spacing: 0.03em;
+}
+
+.monaco-workbench .part.titlebar .window-title {
+	font-weight: 500;
+	opacity: 0.85;
+}
+
+/* Inject a small ember dot before the window title as a brand mark */
+.monaco-workbench .part.titlebar .window-appicon {
+	width: 18px;
+	height: 18px;
+	background-size: 14px 14px;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: relative;
+}
+
+.monaco-workbench .part.titlebar .window-appicon::after {
+	content: "";
+	position: absolute;
+	inset: 4px;
+	border-radius: 50%;
+	background: radial-gradient(circle at 30% 30%, var(--shuv-accent-hot), var(--shuv-accent) 60%, #6b0808 100%);
+	box-shadow: 0 0 8px var(--shuv-accent-glow), inset 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Activity bar on TOP (horizontal) ---------- */
+.monaco-workbench .part.activitybar.top {
+	background: var(--shuv-bg-deep);
+	border-bottom: 1px solid var(--shuv-border-soft);
+	padding: 4px 8px;
+	min-height: 38px;
+}
+
+.monaco-workbench .activitybar .monaco-action-bar .action-item {
+	border-radius: var(--shuv-radius-sm);
+	margin: 0 2px;
+	transition: background-color 180ms ease-out, transform 120ms ease-out;
+}
+
+.monaco-workbench .activitybar .monaco-action-bar .action-item:hover {
+	background: var(--shuv-bg-elevated);
+}
+
+.monaco-workbench .activitybar .monaco-action-bar .action-item.checked {
+	background: rgba(196, 21, 27, 0.16);
+	box-shadow: inset 0 0 0 1px rgba(196, 21, 27, 0.35);
+}
+
+/* Replace the heavy active indicator bar with a soft glow */
+.monaco-workbench .activitybar .active-item-indicator::before {
+	border-radius: 2px !important;
+	box-shadow: 0 0 8px var(--shuv-accent-glow);
+}
+
+/* ---------- Pill tabs ---------- */
+.monaco-workbench .part.editor > .content .editor-group-container > .title.tabs > .tabs-container {
+	padding: 6px 8px 0 8px;
+	gap: 4px;
+}
+
+.monaco-workbench .part.editor > .content .editor-group-container > .title.tabs .tab {
+	border-radius: var(--shuv-radius-md) var(--shuv-radius-md) 0 0;
+	margin: 0;
+	border: 1px solid transparent;
+	border-bottom: none;
+	min-height: 30px;
+	padding: 0 12px;
+	transition: background-color 160ms ease-out, color 160ms ease-out;
+}
+
+.monaco-workbench .part.editor > .content .editor-group-container > .title.tabs .tab:not(.active):hover {
+	background: var(--shuv-bg-elevated) !important;
+}
+
+.monaco-workbench .part.editor > .content .editor-group-container > .title.tabs .tab.active {
+	background: var(--shuv-bg-panel) !important;
+	border-color: var(--shuv-border-soft);
+	box-shadow: inset 0 2px 0 0 var(--shuv-accent), 0 -2px 12px -4px var(--shuv-accent-glow);
+}
+
+.monaco-workbench .part.editor > .content .editor-group-container > .title.tabs .tab.active .tab-label {
+	font-weight: 500;
+}
+
+/* Hide the noisy tab border-top indicator since we already glow */
+.monaco-workbench .part.editor > .content .editor-group-container > .title.tabs .tab.active::before {
+	display: none;
+}
+
+/* ---------- Sidebar polish ---------- */
+.monaco-workbench .part.sidebar {
+	border-right: 1px solid var(--shuv-border-soft);
+}
+
+.monaco-workbench .part.sidebar .composite.title {
+	padding: 12px 16px 8px 16px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	font-size: 10px;
+	font-weight: 600;
+	opacity: 0.65;
+}
+
+.monaco-workbench .part.sidebar .monaco-list .monaco-list-row {
+	border-radius: var(--shuv-radius-sm);
+	margin: 0 6px;
+	width: calc(100% - 12px);
+	transition: background-color 140ms ease-out;
+}
+
+/* ---------- Panel (now on right) polish ---------- */
+.monaco-workbench .part.panel {
+	border-left: 1px solid var(--shuv-border-soft);
+}
+
+.monaco-workbench .part.panel .composite.title {
+	padding: 8px 12px;
+	border-bottom: 1px solid var(--shuv-border-soft);
+}
+
+.monaco-workbench .part.panel .composite.title .monaco-action-bar .action-item .action-label {
+	font-size: 11px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+/* ---------- Status bar: low-key ---------- */
+.monaco-workbench .part.statusbar {
+	height: 24px;
+	font-size: 11px;
+	letter-spacing: 0.02em;
+	border-top: 1px solid var(--shuv-border-soft);
+}
+
+.monaco-workbench .part.statusbar .statusbar-item {
+	padding: 0 8px;
+}
+
+.monaco-workbench .part.statusbar .statusbar-item.has-command:hover {
+	background: var(--shuv-bg-elevated);
+}
+
+/* ---------- Quick input / command palette ---------- */
+.monaco-workbench .quick-input-widget {
+	border-radius: var(--shuv-radius-lg);
+	box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--shuv-border-soft);
+	overflow: hidden;
+}
+
+.monaco-workbench .quick-input-widget .quick-input-header {
+	padding: 8px 12px;
+}
+
+.monaco-workbench .quick-input-widget .quick-input-box {
+	border-radius: var(--shuv-radius-sm);
+}
+
+/* ---------- Inputs / buttons ---------- */
+.monaco-workbench .monaco-inputbox,
+.monaco-workbench .monaco-findInput {
+	border-radius: var(--shuv-radius-sm);
+}
+
+.monaco-workbench .monaco-button {
+	border-radius: var(--shuv-radius-sm);
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	transition: background-color 160ms ease-out, box-shadow 160ms ease-out;
+}
+
+.monaco-workbench .monaco-button:focus {
+	box-shadow: 0 0 0 2px var(--shuv-accent-glow);
+}
+
+/* ---------- Scrollbars ---------- */
+.monaco-workbench .monaco-scrollable-element > .scrollbar > .slider {
+	border-radius: 6px;
+	transition: background-color 200ms ease-out;
+}
+
+/* ---------- Notifications ---------- */
+.monaco-workbench .notification-toast {
+	border-radius: var(--shuv-radius-md);
+	overflow: hidden;
+	box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--shuv-border-soft);
+}
+
+/* ---------- Editor: roomier ---------- */
+.monaco-workbench .editor-instance {
+	background: var(--shuv-bg-panel);
+}
+
+.monaco-workbench .part.editor .editor-group-container.empty {
+	background:
+		radial-gradient(circle at 50% 45%, rgba(196, 21, 27, 0.05), transparent 60%),
+		var(--shuv-bg-panel);
+}
+
+/* Letterpress watermark — slightly larger and warmer */
+.monaco-workbench .part.editor .editor-group-container.empty .letterpress {
+	opacity: 0.55;
+	filter: drop-shadow(0 0 24px var(--shuv-accent-glow));
+}
+
+/* ---------- Suggest widget ---------- */
+.monaco-workbench .suggest-widget {
+	border-radius: var(--shuv-radius-md);
+	box-shadow: 0 18px 36px -10px rgba(0, 0, 0, 0.65), 0 0 0 1px var(--shuv-border-soft);
+	overflow: hidden;
+}
+
+/* ---------- Hover widget ---------- */
+.monaco-workbench .monaco-hover {
+	border-radius: var(--shuv-radius-md);
+	box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--shuv-border-soft);
+}
+
+/* ---------- Settings editor ---------- */
+.monaco-workbench .settings-editor .settings-header {
+	padding: 24px 32px 12px 32px;
+}
+
+.monaco-workbench .settings-editor .settings-header .settings-search-container .settings-search-input {
+	border-radius: var(--shuv-radius-md);
+}
+
+/* ---------- Reduce visual noise: kill the dotted focus outline on action items ---------- */
+.monaco-workbench .monaco-action-bar .action-item.focused:not(.disabled) {
+	outline: none !important;
+}
+.monaco-workbench .monaco-action-bar .action-item.focused:not(.disabled) > .action-label {
+	box-shadow: inset 0 0 0 1px rgba(196, 21, 27, 0.35);
+	border-radius: var(--shuv-radius-sm);
+}

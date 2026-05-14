@@ -14,6 +14,13 @@ Ship a branded, packageable `shuvscode` editor (fork of VSCodium/VS Code) for Li
 - **Phase 6 (AUR package):** `packaging/aur/shuvscode-bin/` is updated to `v1.112.02780.shuv1` with real checksums. `makepkg --verifysource`, `makepkg -Ccf`, and `sudo pacman -U` verified locally. Installed command is `/usr/bin/shuvscode`.
 - **Phase 7 (Extensions):** Bootstrap extension committed. Baked `detachhead.basedpyright` v1.39.3 and `EditorConfig.EditorConfig` v0.18.2 with SHA256 + deterministic UUIDs. `Continue.continue` was removed from bootstrap/defaults; `sdras.night-owl` is bootstrap-installed and `workbench.colorTheme` defaults to `Night Owl`.
 - **Phase 8 (Strip patches):** User patches strip welcome/surveys (10), release notes/update UI (11), command center force-off (13), AI/notebook/testing startup contributions (14), account/sync/telemetry surfaces (15), heavy optional workbench tools (16), and product-level native configuration defaults (17). Clean local build passed for patches 10/11/13/14/15/16/17. Installed product metadata shows product-level defaults for extension auto-update, release notes, experiments, and telemetry.
+- **Phase 9 (UI rebrand — in progress, building now):**
+  - New built-in theme extension `shuvscode-ember` (`src/stable/extensions/shuvscode-ember/`) — ember/devil-red dark theme on near-black base, replaces Night Owl as default.
+  - `shuvscode-defaults` v0.0.2: editor font stack defaults to Berkeley Mono → Monaspace Neon → JetBrains Mono → monospace; ligatures on; line-height 1.65; smooth caret; terminal font matched; tab styling (shrink + right close button); custom window title format.
+  - `shuvscode.product.json` `configurationDefaults` now also sets app-scoped UI defaults that extensions can't override: `window.titleBarStyle: custom`, `window.menuBarVisibility: hidden`, `workbench.activityBar.location: top`, `workbench.panel.defaultLocation: right`.
+  - New patch `patches/user/20-inject-shuvscode-css.patch`: adds a `<link>` to `shuvscode.css` in `workbench.html` and adds the file to `vscodeResourceIncludes` in `build/gulpfile.vscode.ts`. CSS source lives at `src/stable/src/vs/code/electron-browser/workbench/shuvscode.css` (pill tabs with ember glow, rounded popovers, custom titlebar dot, watermark glow, smooth scrollbars, ember active-tab indicator, sidebar/panel typography).
+  - Bootstrap extension no longer auto-installs `sdras.night-owl` (theme is built-in now); still installs `vscode-icons-team.vscode-icons`.
+  - Pre-rebrand tag: `pre-ui-rebrand` (commit `f947611f`).
 
 ### Not done
 - Investigate bootstrap extension activation in isolated smoke profiles; manual CLI extension install works, but automatic bootstrap did not install Night Owl/vscode-icons during the first smoke launch

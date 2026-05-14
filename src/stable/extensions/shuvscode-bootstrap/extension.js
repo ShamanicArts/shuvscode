@@ -2,8 +2,9 @@ const vscode = require('vscode');
 
 const FLAG = 'shuvscode.bootstrapped';
 
+// Bootstrap installs only third-party extensions we can't bake in.
+// The default theme ships as the built-in `shuvscode-ember` extension.
 const EXTENSIONS = [
-  'sdras.night-owl',
   'vscode-icons-team.vscode-icons'
 ];
 

@@ -1,0 +1,22 @@
+{
+  "name": "shuvscode-ember",
+  "displayName": "shuvscode Ember",
+  "description": "Signature ember/devil theme for shuvscode. Near-black base, charcoal panels, blood-red accents.",
+  "version": "0.0.1",
+  "publisher": "shuvscode",
+  "engines": {
+    "vscode": "*"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "shuvscode Ember",
+        "uiTheme": "vs-dark",
+        "path": "./themes/shuvscode-ember-color-theme.json"
+      }
+    ]
+  }
+}

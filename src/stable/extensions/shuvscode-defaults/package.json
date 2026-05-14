@@ -2,7 +2,7 @@
   "name": "shuvscode-defaults",
   "displayName": "shuvscode Defaults",
   "description": "Opinionated default settings for shuvscode.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "shuvscode",
   "engines": {
     "vscode": "*"
@@ -16,7 +16,7 @@
       "workbench.tips.enabled": false,
       "workbench.welcomePage.walkthroughs.openOnInstall": false,
       "workbench.commandPalette.experimental.suggestCommands": false,
-      "workbench.colorTheme": "Night Owl",
+      "workbench.colorTheme": "shuvscode Ember",
 
       "extensions.ignoreRecommendations": true,
       "workbench.settings.enableNaturalLanguageSearch": false,
@@ -24,12 +24,48 @@
       "git.autofetch": false,
 
       "window.commandCenter": false,
+      "window.title": "${activeEditorShort}${separator}${rootName}${separator}shuvscode",
       "workbench.layoutControl.enabled": false,
+      "workbench.sideBar.location": "left",
+      "workbench.editor.showTabs": "multiple",
+      "workbench.editor.tabActionLocation": "right",
+      "workbench.editor.tabSizing": "shrink",
+      "workbench.editor.tabCloseButton": "right",
+      "workbench.editor.wrapTabs": false,
+      "workbench.editor.decorations.colors": true,
+      "workbench.editor.decorations.badges": true,
 
       "breadcrumbs.enabled": false,
       "editor.minimap.enabled": false,
       "editor.stickyScroll.enabled": false,
-      "editor.inlayHints.enabled": "off"
+      "editor.inlayHints.enabled": "off",
+
+      "editor.fontFamily": "'Berkeley Mono', 'Monaspace Neon', 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Menlo', 'Consolas', monospace",
+      "editor.fontLigatures": true,
+      "editor.fontSize": 13,
+      "editor.lineHeight": 1.65,
+      "editor.letterSpacing": 0.1,
+      "editor.cursorBlinking": "smooth",
+      "editor.cursorSmoothCaretAnimation": "on",
+      "editor.cursorWidth": 2,
+      "editor.smoothScrolling": true,
+      "editor.renderLineHighlight": "line",
+      "editor.renderWhitespace": "selection",
+      "editor.guides.indentation": true,
+      "editor.guides.bracketPairs": "active",
+      "editor.padding.top": 16,
+
+      "terminal.integrated.fontFamily": "'Berkeley Mono', 'Monaspace Neon', 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Menlo', 'Consolas', monospace",
+      "terminal.integrated.fontSize": 13,
+      "terminal.integrated.smoothScrolling": true,
+      "terminal.integrated.cursorBlinking": true,
+      "terminal.integrated.cursorStyle": "line",
+      "terminal.integrated.gpuAcceleration": "on",
+
+      "workbench.list.smoothScrolling": true,
+      "workbench.tree.indent": 14,
+      "workbench.tree.renderIndentGuides": "always",
+      "workbench.iconTheme": "vscode-icons"
     }
   }
 }
