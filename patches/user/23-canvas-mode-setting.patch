@@ -1,0 +1,33 @@
+Add shuvscode Canvas UI activation gate.
+
+Reads workbench.canvas.enabled (default true) at startup and toggles a
+.shuvscode-canvas class on the workbench main container. The class is also
+updated live when the setting changes, so the Classic escape hatch works
+without a reload.
+
+diff --git a/src/vs/workbench/browser/workbench.ts b/src/vs/workbench/browser/workbench.ts
+--- a/src/vs/workbench/browser/workbench.ts
++++ b/src/vs/workbench/browser/workbench.ts
+@@ -242,6 +242,10 @@ export class Workbench extends Layout {
+ 			if (e.affectsConfiguration('workbench.experimental.fontSize')) {
+ 				this.updateFontSize(configurationService);
+ 			}
++			if (e.affectsConfiguration('workbench.canvas.enabled')) {
++				const canvas = configurationService.getValue<boolean>('workbench.canvas.enabled') ?? true;
++				this.mainContainer.classList.toggle('shuvscode-canvas', canvas);
++			}
+ 		}));
+ 
+ 		// Font Info
+@@ -378,4 +382,9 @@ export class Workbench extends Layout {
+ 
+ 		this.mainContainer.classList.add(...workbenchClasses);
+ 
++		// Canvas mode
++		if (configurationService.getValue<boolean>('workbench.canvas.enabled') ?? true) {
++			this.mainContainer.classList.add('shuvscode-canvas');
++		}
++
+ 		// Apply font aliasing
+ 		this.updateFontAliasing(configurationService);
+ 

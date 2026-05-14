@@ -11,6 +11,21 @@
     "Other"
   ],
   "contributes": {
+    "configuration": {
+      "title": "shuvscode Canvas",
+      "properties": {
+        "workbench.canvas.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable the shuvscode Canvas UI. Disable to use Classic VS Code chrome."
+        },
+        "workbench.canvas.titlebarLabel": {
+          "type": "string",
+          "default": "Workbench Canvas",
+          "description": "Custom label shown in the Canvas titlebar."
+        }
+      }
+    },
     "configurationDefaults": {
       "workbench.startupEditor": "none",
       "workbench.tips.enabled": false,
