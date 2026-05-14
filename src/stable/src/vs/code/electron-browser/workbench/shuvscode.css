@@ -202,6 +202,7 @@
 }
 
 /* SCM commit button: full-width amber CTA */
+.monaco-workbench.shuvscode-canvas .scm-view .monaco-button-dropdown,
 .monaco-workbench.shuvscode-canvas .scm-view .monaco-button-dropdown .monaco-button,
 .monaco-workbench.shuvscode-canvas .scm-view .monaco-text-button {
   border-radius: 6px !important;
@@ -213,8 +214,15 @@
 }
 
 .monaco-workbench.shuvscode-canvas .scm-view .monaco-button-dropdown .monaco-button:hover,
-.monaco-workbench.shuvscode-canvas .scm-view .monaco-text-button:hover {
+.monaco-workbench.shuvscode-canvas .scm-view .monaco-text-button:hover,
+.monaco-workbench.shuvscode-canvas .scm-view .monaco-button-dropdown .monaco-dropdown-button:hover {
   background: #f5c25a !important;
+}
+
+.monaco-workbench.shuvscode-canvas .scm-view .monaco-button-dropdown .monaco-dropdown-button {
+  background: var(--canvas-accent) !important;
+  color: var(--canvas-accent-fg) !important;
+  border-left: 1px solid rgba(26, 20, 16, 0.15) !important;
 }
 
 /* SCM action row icons */
