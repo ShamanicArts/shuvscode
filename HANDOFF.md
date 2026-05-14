@@ -14,6 +14,14 @@
   x64
   ```
 - CLI smoke ✅: `--list-extensions` exits 0.
+- **Canvas UI Phase A shipped** — new "Workbench Canvas" chrome with card aesthetic:
+  - Deep navy canvas background (`#0F1421`) with rounded card panels
+  - Amber accent (`#F3B042`) for primary buttons, active tabs, commit CTA
+  - Activity bar avatar tile + transparent background on canvas
+  - Titlebar label (`workbench.canvas.titlebarLabel`) + centered command-center pill
+  - SCM commit button restyled as full-width amber CTA with dropdown split
+  - Density tuned: 32px tabs, 6px pane padding, 26px breadcrumbs
+  - All scoped under `body.shuvscode-canvas` — toggle `workbench.canvas.enabled` to escape to Classic
 - Final UI polish included:
   - top-left devil phone logo visible
   - activity/sidebar icons centered
@@ -51,10 +59,16 @@
 - `patches/user/20-inject-shuvscode-chrome.patch` — injects CSS into workbench and includes it in package resources.
 - `patches/user/21-statusbar-shuv-layout.patch` — moves Problems/remote status entries to right side of status bar.
 - `patches/user/22-strip-outline-pane.patch` — removes Outline contributions.
-- `src/stable/src/vs/code/electron-browser/workbench/shuvscode.css` — chrome overlay.
+- `patches/user/23-canvas-mode-setting.patch` — toggles `.shuvscode-canvas` class on workbench container via `workbench.canvas.enabled`.
+- `patches/user/24-canvas-titlebar.patch` — injects `workbench.canvas.titlebarLabel` into titlebar left area.
+- `patches/user/25-canvas-activitybar-avatar.patch` — injects avatar tile at top of activity bar.
+- `src/stable/src/vs/code/electron-browser/workbench/shuvscode.css` — Canvas chrome overlay (palette, cards, tabs, buttons, SCM CTA).
 - `src/stable/extensions/shuvscode-phosphor-product-icons/` — built-in Phosphor product icon theme + font.
 - `src/stable/extensions/shuvscode-night-owl/` — bundled Night Owl theme files + license.
 - `src/stable/extensions/shuvscode-defaults/package.json` — defaults include:
+  - `workbench.canvas.enabled = true`
+  - `workbench.canvas.titlebarLabel = "Workbench Canvas"`
+  - `window.commandCenter = true`
   - `workbench.colorTheme = Night Owl`
   - `workbench.productIconTheme = shuvscode-phosphor`
   - `workbench.iconTheme = seti`
@@ -105,9 +119,16 @@ makepkg --nodeps -f  # in temp AUR copy with local file:// tarball source
 - `version-1-update.patch.yet` remains disabled; do not re-enable updates without rebasing it.
 
 ## Next steps
-1. Commit current changes in logical commits.
-2. Create git tag `v1.120.0.shuv2`.
-3. Publish GitHub release with `dist/shuvscode-1.120.0-linux-x64.tar.gz`.
+### Canvas UI roadmap
+- Phase A ✅ COMPLETE (7 commits) — setting gate, palette, density, titlebar label, activity bar avatar, SCM CTA.
+- Phase B — Hybrid Projects pane (pinned + recent workspaces) replacing Explorer top section.
+- Phase C — Floating-canvas research spike on Outline view behind `workbench.canvas.floating` flag.
+- Phase D — AI Assistant panel (needs backend decision: local LLM / OpenAI-compat / stub).
+
+### Release
+1. Build and validate the Canvas UI binary.
+2. Create git tag `v1.120.0.shuv3` (or next appropriate version).
+3. Publish GitHub release with tarball.
 4. Push updated AUR package.
 
 ## Resume prompt
