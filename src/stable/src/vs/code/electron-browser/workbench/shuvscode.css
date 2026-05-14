@@ -268,6 +268,32 @@
   width: 272px !important;
 }
 
+/* Density: tighter tabs, padded panes */
+.monaco-workbench.shuvscode-canvas .part.editor > .content .editor-group-container > .title.tabs .tab {
+  height: 32px;
+}
+
+.monaco-workbench.shuvscode-canvas .part.editor > .content .editor-group-container > .title.tabs {
+  height: 36px;
+}
+
+.monaco-workbench.shuvscode-canvas .part.sidebar > .content,
+.monaco-workbench.shuvscode-canvas .part.panel > .content,
+.monaco-workbench.shuvscode-canvas .part.auxiliarybar > .content {
+  padding: 6px;
+}
+
+.monaco-workbench.shuvscode-canvas .part.sidebar > .content .composite.title,
+.monaco-workbench.shuvscode-canvas .part.panel > .content .composite.title,
+.monaco-workbench.shuvscode-canvas .part.auxiliarybar > .content .composite.title {
+  padding: 4px 6px;
+  height: 36px;
+}
+
+.monaco-workbench.shuvscode-canvas .monaco-breadcrumbs {
+  height: 26px;
+}
+
 /* Phosphor product icons: heavier feel */
 .monaco-workbench.shuvscode-canvas .codicon[class*='codicon-'] {
   font-size: 18px;
