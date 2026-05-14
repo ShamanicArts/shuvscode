@@ -1,0 +1,20 @@
+Inject the Canvas titlebar label (workbench.canvas.titlebarLabel) into the
+titlebar left area.
+
+diff --git a/src/vs/workbench/browser/parts/titlebar/titlebarPart.ts b/src/vs/workbench/browser/parts/titlebar/titlebarPart.ts
+--- a/src/vs/workbench/browser/parts/titlebar/titlebarPart.ts
++++ b/src/vs/workbench/browser/parts/titlebar/titlebarPart.ts
+@@ -464,5 +464,13 @@ export class TitlebarPart extends Part {
+ 		this.leftContent = append(this.rootContainer, $('.titlebar-left'));
++
++		// shuvscode: inject titlebar label from workbench.canvas.titlebarLabel
++		const canvasLabel = this.configurationService.getValue<string>('workbench.canvas.titlebarLabel');
++		if (canvasLabel) {
++			const labelEl = append(this.leftContent, $('span.shuvscode-titlebar-label'));
++			labelEl.textContent = canvasLabel;
++		}
++
+ 		this.centerContent = append(this.rootContainer, $('.titlebar-center'));
+ 		this.rightContent = append(this.rootContainer, $('.titlebar-right'));
+ 
+ 		// App Icon (Windows, Linux)

@@ -19,6 +19,34 @@
 }
 
 /* Titlebar: flat bar with bottom gap */
+.monaco-workbench.shuvscode-canvas .part.titlebar .shuvscode-titlebar-label {
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--canvas-text);
+	margin-left: 8px;
+	opacity: 0.9;
+	letter-spacing: 0.02em;
+	user-select: none;
+}
+
+.monaco-workbench.shuvscode-canvas .part.titlebar .titlebar-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Command center pill styling */
+.monaco-workbench.shuvscode-canvas .part.titlebar .titlebar-center .action-item .action-label,
+.monaco-workbench.shuvscode-canvas .part.titlebar .titlebar-center .monaco-toolbar .action-item .action-label {
+	background: var(--canvas-surface-elevated);
+	border: 1px solid var(--canvas-border);
+	border-radius: 999px;
+	padding: 4px 16px;
+	font-size: 13px;
+	color: var(--canvas-text-dim);
+}
+
+/* Titlebar: flat bar with bottom gap */
 .monaco-workbench.shuvscode-canvas .part.titlebar {
   background: var(--canvas-surface);
   border-bottom: 1px solid var(--canvas-border);
